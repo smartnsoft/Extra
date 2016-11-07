@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Extra_Example' do
+  pod 'Extra', :path => '../'
+
+  target 'Extra_Tests' do
+    inherit! :search_paths
+
+#pod 'FBSnapshotTestCase'
+  end
+end
