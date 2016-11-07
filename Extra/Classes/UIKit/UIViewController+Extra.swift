@@ -6,7 +6,6 @@
 //
 //
 
-
 extension UIViewController {
   
   /// Returns the current application's top most view controller.
@@ -46,6 +45,7 @@ extension UIViewController {
   
   
   open func ex_addChildViewController(_ childController: UIViewController, in container: UIView, insets: UIEdgeInsets = .zero) {
+    
     if let childView = childController.view {
       self.addChildViewController(childController)
       container.addSubview(childView, insets: insets)
@@ -55,7 +55,11 @@ extension UIViewController {
     
   }
   
-  open func switchChilds(from originController: UIViewController?, to destinationController: UIViewController, in viewContainer: UIView, duration: TimeInterval = 0, animationType: UIViewAnimationOptions = .transitionCrossDissolve) {
+  open func ex_switchChilds(from originController: UIViewController?,
+                         to destinationController: UIViewController,
+                         in viewContainer: UIView,
+                         duration: TimeInterval = 0,
+                         animations: UIViewAnimationOptions = .transitionCrossDissolve) {
     originController?.willMove(toParentViewController: nil)
     self.addChildViewController(destinationController)
     
@@ -64,7 +68,23 @@ extension UIViewController {
     }
     
     if let originController = originController {
-//      self.transition(from: originController, to: destinationController, duration: <#T##TimeInterval#>, options: <#T##UIViewAnimationOptions#>, animations: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+      self.transition(from: originController,
+                      to: destinationController,
+                      duration: duration,
+                      options: animations,
+                      animations: nil,
+                      completion: { (completed) in
+                        originController.removeFromParentViewController()
+                        destinationController.didMove(toParentViewController: self)
+                        
+      })
+    } else {
+      destinationController.view.alpha = 0
+      UIView.animate(withDuration: duration, animations: { 
+        destinationController.view.alpha = 1
+        }, completion: { (finished) in
+          destinationController.didMove(toParentViewController: self)
+      })
     }
   }
   
