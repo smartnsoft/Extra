@@ -1,6 +1,6 @@
 # Extra
 
-[![CI Status](http://img.shields.io/travis/Jean-Charles SORIN/Extra.svg?style=flat)](https://travis-ci.org/Jean-Charles SORIN/Extra)
+[![CI Status](http://img.shields.io/travis/Jean-Charles SORIN/Extra.svg?style=flat)](https://travis-ci.org/smartnsoft/Extra)
 [![Version](https://img.shields.io/cocoapods/v/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
 
 ## Example
