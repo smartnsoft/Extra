@@ -9,7 +9,7 @@
 extension UIViewController {
   
   /// Returns the current application's top most view controller.
-  open class var ex_topMost: UIViewController? {
+  open class func ex_topMost() -> UIViewController? {
     let rootViewController = UIApplication.shared.windows.first?.rootViewController
     return self.ex_topMost(of: rootViewController)
   }
@@ -60,6 +60,7 @@ extension UIViewController {
                          in viewContainer: UIView,
                          duration: TimeInterval = 0,
                          animations: UIViewAnimationOptions = .transitionCrossDissolve) {
+    
     originController?.willMove(toParentViewController: nil)
     self.addChildViewController(destinationController)
     

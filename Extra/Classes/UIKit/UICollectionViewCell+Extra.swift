@@ -7,7 +7,7 @@
 //
 
 extension UICollectionViewCell {
-  open var ex_collectionView: UICollectionView? {
+  open var collectionView: UICollectionView? {
     var view: UIView? = self.superview
     repeat {
       if let collectionView = view as? UICollectionView {

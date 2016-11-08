@@ -10,8 +10,8 @@ import Foundation
 
 extension UITableViewCell {
   
-  open var ex_tableView:UITableView? {
-    var view:UIView? = self.superview
+  open var tableView: UITableView? {
+    var view: UIView? = self.superview
     repeat {
       if let tableView = view as? UITableView {
         return tableView

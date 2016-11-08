@@ -7,10 +7,10 @@
 //
 
 extension UIApplication {
-  static func ex_showActivityIndicator(){
+  static func ex_showActivityIndicator() {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
   }
-  static func ex_hideActivityIndicator(){
+  static func ex_hideActivityIndicator() {
     UIApplication.shared.isNetworkActivityIndicatorVisible = false
   }
 }

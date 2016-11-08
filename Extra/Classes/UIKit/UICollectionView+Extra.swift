@@ -19,7 +19,7 @@ extension UICollectionView {
     return indexPath
   }
   
-  //Scroll to correct index, according to dependant index, if the destination cell is to large, no hide the according cell
+  //Scroll to correct index, according to dependant index, if the destination cell is to large display it at maximum
   open func ex_scrollVertically(to: IndexPath, accordingTo: IndexPath, animated: Bool = false) {
     if let dataSource = self.dataSource {
       let topCell = dataSource.collectionView(self, cellForItemAt: accordingTo)
@@ -27,12 +27,12 @@ extension UICollectionView {
       let diff = (bottomCell.frame.origin.y + bottomCell.frame.size.height) - (self.contentOffset.y + self.frame.size.height)
       
       if diff > 0 {
-        if (diff < (topCell.frame.origin.y - self.contentOffset.y)) {
+        if diff < (topCell.frame.origin.y - self.contentOffset.y) {
           DispatchQueue.main.async {
             self.setContentOffset(CGPoint(x: 0, y: self.contentOffset.y + diff),
                                   animated: animated)
           }
-        }else {
+        } else {
           DispatchQueue.main.async {
             self.setContentOffset(CGPoint(x: 0, y: self.contentOffset.y + (topCell.frame.origin.y - self.contentOffset.y)),
                                   animated: animated)

@@ -38,6 +38,30 @@ public enum ExtraGradientDirection {
 
 extension UIView {
   
+  open var top: CGFloat {
+    return self.frame.origin.y
+  }
+  
+  open var left: CGFloat {
+    return self.frame.origin.x
+  }
+  
+  open var bottom: CGFloat {
+    return self.frame.origin.y + self.height
+  }
+  
+  open var right: CGFloat {
+    return self.frame.origin.x + self.width
+  }
+  
+  open var width: CGFloat {
+    return self.frame.width
+  }
+  
+  open var height: CGFloat {
+    return self.frame.height
+  }
+  
   open func ex_initXib() {
     let view = ex_instantiateFromNib()
     view.frame = bounds
@@ -81,6 +105,12 @@ extension UIView {
     }
   }
   
+  open func ex_setAllSubviewsHidden(_ hidden: Bool) {
+    self.subviews.forEach { (view) in
+      view.isHidden = hidden
+    }
+  }
+  
   open func ex_addClearToDarkGradient(radius: CGFloat = 0, direction: ExtraGradientDirection) {
     let gradient = CAGradientLayer()
     gradient.masksToBounds = true
@@ -96,4 +126,5 @@ extension UIView {
     
     self.layer.mask = gradient
   }
+  
 }

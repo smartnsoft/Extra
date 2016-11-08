@@ -9,6 +9,7 @@
 import Foundation
 
 extension UIColor {
+  
   open func ex_toImage(size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
     let rect = CGRect(x:0, y:0, width: size.width, height: size.height)
     UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -35,9 +36,35 @@ extension UIColor {
     }
     
     if formatedHexa.characters.count == 4 {
-      //formatedHexa = "#" + formatedHexa.substring(with: )
+      
+      let hexaString = formatedHexa as NSString
+      formatedHexa = "#" + hexaString.substring(with: NSRange(location: 1, length: 1)) + hexaString.substring(with: NSRange(location: 1, length: 1))
+      + hexaString.substring(with: NSRange(location: 2, length: 1)) + hexaString.substring(with: NSRange(location: 2, length: 1))
+      + hexaString.substring(with: NSRange(location: 3, length: 1)) + hexaString.substring(with: NSRange(location: 3, length: 1))
     }
     
-    return nil
+    let hexaString = formatedHexa as NSString
+    
+    let redHex = "0x" + hexaString.substring(with: NSRange(location: 1, length: 2))
+    let greenHex = "0x" + hexaString.substring(with: NSRange(location: 3, length: 2))
+    let blueHex = "0x" + hexaString.substring(with: NSRange(location: 5, length: 2))
+    
+    var red: UInt32 = 0
+    Scanner(string: redHex).scanHexInt32(&red)
+    
+    var green: UInt32 = 0
+    Scanner(string: greenHex).scanHexInt32(&green)
+    
+    var blue: UInt32 = 0
+    Scanner(string: blueHex).scanHexInt32(&blue)
+    
+    
+    let color = UIColor(red: CGFloat(red)/255,
+                        green: CGFloat(green)/255,
+                        blue: CGFloat(blue)/255,
+                        alpha: alpha)
+    
+    
+    return color
   }
 }
