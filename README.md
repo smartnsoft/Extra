@@ -1,6 +1,6 @@
 # Extra
 
-[![CI Status](http://img.shields.io/travis/Jean-Charles SORIN/Extra.svg?style=flat)](https://travis-ci.org/smartnsoft/Extra)
+[![CI Status](http://img.shields.io/travis/smartnsoft/Extra.svg?style=flat)](https://travis-ci.org/smartnsoft/Extra)
 [![Version](https://img.shields.io/cocoapods/v/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
 
 ## Example
@@ -8,6 +8,9 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+- iOS 9+
+- Xcode 8+, Swift 3
 
 ## Installation
 
@@ -20,7 +23,7 @@ pod "Extra"
 
 ## Author
 
-Jean-Charles SORIN, jean-charles@smartnsoft.com
+Smart&Soft, software agency [http://www.smartnsoft.com](http://www.smartnsoft.com)
 
 ## License
 

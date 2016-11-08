@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Extra'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Extra.'
+  s.summary          = 'Be extra productive on iOS with Extra.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,22 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Usefull extensions in Swift 3 for your Cocoa Touch projects, make with love by Smart&Soft.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/Extra'
+  s.homepage         = 'https://github.com/smartnsoft/Extra'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Jean-Charles SORIN' => 'jean-charles@smartnsoft.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/Extra.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Smart&Soft' => 'contact@smartnsoft.com' }
+  s.source           = { :git => 'https://github.com/smartnsoft/Extra.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'Extra/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Extra' => ['Extra/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.ios.frameworks        = 'UIKit', 'QuartzCore', 'Foundation'
+  
+  s.subspec "UIKit" do |sp|
+    sp.ios.source_files = "Extra/Classes/UIKit/**/*.{swift}"
+  end
 end
