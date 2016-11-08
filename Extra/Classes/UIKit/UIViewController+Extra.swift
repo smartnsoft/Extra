@@ -15,7 +15,7 @@ extension UIViewController {
   }
   
   /// Returns the top most view controller from given view controller's stack.
-  class func ex_topMost(of viewController: UIViewController?) -> UIViewController? {
+  open class func ex_topMost(of viewController: UIViewController?) -> UIViewController? {
     // UITabBarController
     if let tabBarController = viewController as? UITabBarController,
       let selectedViewController = tabBarController.selectedViewController {
@@ -48,7 +48,7 @@ extension UIViewController {
     
     if let childView = childController.view {
       self.addChildViewController(childController)
-      container.addSubview(childView, insets: insets)
+      container.ex_addSubview(childView, insets: insets)
     } else {
       fatalError("Your view controller \(childController) does not contain any view")
     }
@@ -64,7 +64,7 @@ extension UIViewController {
     self.addChildViewController(destinationController)
     
     if let childView = destinationController.view {
-      viewContainer.addSubview(childView, insets: .zero)
+      viewContainer.ex_addSubview(childView, insets: .zero)
     }
     
     if let originController = originController {
