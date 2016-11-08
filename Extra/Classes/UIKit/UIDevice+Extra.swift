@@ -9,11 +9,12 @@
 import Foundation
 
 extension UIDevice {
-  static func ex_isPad() -> Bool {
+  
+  open static func ex_isPad() -> Bool {
     return UIDevice.current.userInterfaceIdiom == .pad
   }
   
-  static func ex_isPhone() -> Bool {
+  open static func ex_isPhone() -> Bool {
     return UIDevice.current.userInterfaceIdiom == .phone
   }
 }

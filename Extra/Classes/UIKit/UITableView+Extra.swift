@@ -10,20 +10,23 @@ import Foundation
 
 extension UITableView {
   
-  func ex_setAndLayoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
+  
+  /// Configure and set the global table HeaderView and correctly set the frame to the fitting size
+  ///
+  /// - parameter headerView: Your custom header view
+  /// - parameter edges:      Specify potential spacing insets
+  open func ex_setAndLayoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
     self.tableHeaderView = headerView
     headerView.setNeedsLayout()
     headerView.layoutIfNeeded()
     ex_layoutTableHeaderView(headerView, edges: edges)
   }
   
-  /**
-   Automatic height for your header. Call it on didLayoutSubviews
-   
-   - parameter view: Header embeded view
-   - parameter edges: edges of the embeded header
-   */
-  func ex_layoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
+  /// Automatic height for your header. Call it on didLayoutSubviews
+  ///
+  /// - parameter headerView: Your custom header view
+  /// - parameter edges:      Specify potential spacing insets
+  open func ex_layoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
     var horizontalMargins: CGFloat = 0
     var verticalMargins: CGFloat = 0
     if let edges = edges {
@@ -39,20 +42,24 @@ extension UITableView {
     self.tableHeaderView = headerView
   }
   
-  func ex_setAndLayoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
+  
+  /// Configure and set the global table FooterView and correctly set the frame to the fitting size
+  ///
+  /// - parameter footerView: Your custom header view
+  /// - parameter edges:      Specify potential spacing insets
+  open func ex_setAndLayoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
     self.tableFooterView = footerView
     footerView.setNeedsLayout()
     footerView.layoutIfNeeded()
     ex_layoutTableFooterView(footerView, edges: edges)
   }
   
-  /**
-   Automatic height for your header. Call it on didLayoutSubviews
-   
-   - parameter view: Header embeded view
-   - parameter edges: edges of the embeded header
-   */
-  func ex_layoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
+  
+  /// Automatic height for your footer. Call it on didLayoutSubviews
+  ///
+  /// - parameter footerView: Your custom header view
+  /// - parameter edges:      Specify potential spacing insets
+  open func ex_layoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
     var horizontalMargins: CGFloat = 0
     var verticalMargins: CGFloat = 0
     if let edges = edges {

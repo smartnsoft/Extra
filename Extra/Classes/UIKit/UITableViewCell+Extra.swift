@@ -10,6 +10,7 @@ import Foundation
 
 extension UITableViewCell {
   
+  /// The current table view linked to your cell
   open var tableView: UITableView? {
     var view: UIView? = self.superview
     repeat {

@@ -9,6 +9,12 @@
 import Foundation
 
 extension UICollectionView {
+  
+  
+  /// Check the index path pointer by the center point
+  /// Usefull when you want to constently check the user scrolling and change a page indicator
+  ///
+  /// - returns: founded indexPath
   open func ex_currentIndexPathForCenter() -> IndexPath? {
     
     let point = CGPoint(x: self.frame.width / 2 + self.contentOffset.x,
@@ -19,7 +25,13 @@ extension UICollectionView {
     return indexPath
   }
   
-  //Scroll to correct index, according to dependant index, if the destination cell is to large display it at maximum
+  
+  /// Correctly center the given cell at index paths to optimize the **vertical** center display.
+  /// Use it for "expandable cells", if a cell is inserted into your collection view and there is no space to display it entirely, use this method.
+  ///
+  /// - parameter to:          The cell, under your according cell, that you want to display entirely
+  /// - parameter accordingTo: The cell at the vertical top of your layout
+  /// - parameter animated:    False by default
   open func ex_scrollVertically(to: IndexPath, accordingTo: IndexPath, animated: Bool = false) {
     if let dataSource = self.dataSource {
       let topCell = dataSource.collectionView(self, cellForItemAt: accordingTo)

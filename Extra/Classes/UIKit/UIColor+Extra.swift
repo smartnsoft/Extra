@@ -10,6 +10,12 @@ import Foundation
 
 extension UIColor {
   
+  
+  /// Transform the current color to a sizable UIImage
+  ///
+  /// - parameter size: the desired size, default is 10/10
+  ///
+  /// - returns: The filled color image
   open func ex_toImage(size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
     let rect = CGRect(x:0, y:0, width: size.width, height: size.height)
     UIGraphicsBeginImageContextWithOptions(size, false, 0)
@@ -21,6 +27,13 @@ extension UIColor {
     return image
   }
   
+  
+  /// Create a color from an hexa string
+  ///
+  /// - parameter hexaString: #1234 or #123456 or without # character
+  /// - parameter alpha:      the desired transparence
+  ///
+  /// - returns: generated UIColor
   open static func ex_fromHexa(_ hexaString: String, alpha: CGFloat = 1) -> UIColor? {
     guard !hexaString.isEmpty else {
       return nil

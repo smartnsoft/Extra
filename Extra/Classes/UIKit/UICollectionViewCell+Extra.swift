@@ -7,6 +7,9 @@
 //
 
 extension UICollectionViewCell {
+  
+  
+  /// The current collection view linked to your cell
   open var collectionView: UICollectionView? {
     var view: UIView? = self.superview
     repeat {

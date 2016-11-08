@@ -10,6 +10,13 @@ import Foundation
 
 extension UIImage {
   
+  
+  /// Creates an UIImage from and UIColor
+  /// This is usefull for your UIButton to set filled background color for states
+  ///
+  /// - parameter color: Based color for image generation
+  ///
+  /// - returns: UIImage generated for the designated color
   open static func ex_from(color: UIColor) -> UIImage? {
     let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
     
@@ -25,6 +32,10 @@ extension UIImage {
     return image
   }
   
+  
+  /// Transforms the current image to a new one with the CIColorMonochrome filter, with black input color
+  ///
+  /// - returns: the transformed image in Black&White
   open func ex_toBlackAndWhite() -> UIImage? {
     
     if let ciImage = self.ciImage {
@@ -44,6 +55,12 @@ extension UIImage {
     return nil
   }
   
+  
+  /// Correctly rotate your image according to the desired degrees
+  ///
+  /// - parameter degrees: Rotation clock direction
+  ///
+  /// - returns: Roated original image
   open func ex_imageRotatedByDegrees(degrees: CGFloat) -> UIImage? {
     
     let radians = degrees * CGFloat(M_PI / 180)
@@ -68,6 +85,14 @@ extension UIImage {
     return image
   }
   
+  
+  /// This will resize the UIImage to the destination size
+  /// This will fill your UIImage (and potentially enlarge it)
+  /// By this way, this will not produce empty space on top/bottom or left/right sides, the ratio will not change
+  ///
+  /// - parameter size: Your size into fit/resize your original UIImage
+  ///
+  /// - returns: Resized image
   open func ex_scaledFilledToSize(size: CGSize) -> UIImage? {
     let scale = UIScreen.main.scale
     UIGraphicsBeginImageContextWithOptions(size, false, scale)
@@ -99,6 +124,10 @@ extension UIImage {
     return newImage
   }
   
+  
+  /// Simple reisze of your image based to it center
+  ///
+  /// - returns: 
   open func ex_resizableImageByCenter() -> UIImage {
     let topBottom = self.size.height / 2
     let leftRight = self.size.width / 2

@@ -33,7 +33,15 @@ Usefull extensions in Swift 3 for your Cocoa Touch projects, make with love by S
 
   s.ios.frameworks        = 'UIKit', 'QuartzCore', 'Foundation'
   
-  s.subspec "UIKit" do |sp|
+  s.subspec 'UIKit' do |sp|
     sp.ios.source_files = "Extra/Classes/UIKit/**/*.{swift}"
+  end
+
+  s.subspec 'Foundation' do |sp|
+    sp.ios.source_files = "Extra/Classes/Foundation/**/*.{swift}"
+  end
+
+  s.subspec 'Realm' do |sp|
+    sp.ios.source_files = "Extra/Classes/Realm/**/*.{swift}"
   end
 end

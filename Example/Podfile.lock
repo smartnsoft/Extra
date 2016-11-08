@@ -1,5 +1,11 @@
 PODS:
-  - Extra (0.1.0)
+  - Extra (0.1.0):
+    - Extra/Foundation (= 0.1.0)
+    - Extra/Realm (= 0.1.0)
+    - Extra/UIKit (= 0.1.0)
+  - Extra/Foundation (0.1.0)
+  - Extra/Realm (0.1.0)
+  - Extra/UIKit (0.1.0)
 
 DEPENDENCIES:
   - Extra (from `../`)
@@ -9,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extra: 410fd2603c16915cbae1ccd54852082c2db8473d
+  Extra: db6da68a51316b6321e1c13206c808870877f7d3
 
 PODFILE CHECKSUM: db77fdf8e525a356bbd930d9b46c0ce9c37ea657
 

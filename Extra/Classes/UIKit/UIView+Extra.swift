@@ -6,10 +6,12 @@
 //
 //
 
+
+/// Gradient directon to explain vertical/horizontal Y axis for a gradient, and X axis direction
 public enum ExtraGradientDirection {
   case horizontalToRight, horizontalToLeft, verticalToTop, verticalToBottom
   
-  var startPoint: CGPoint {
+  public var startPoint: CGPoint {
     switch self {
     case .verticalToBottom:
       return CGPoint(x: 0.5, y: 0)
@@ -22,7 +24,7 @@ public enum ExtraGradientDirection {
     }
   }
   
-  var endPoint: CGPoint {
+  public var endPoint: CGPoint {
     switch self {
     case .verticalToBottom:
       return CGPoint(x: 0.5, y: 1)
@@ -62,6 +64,8 @@ extension UIView {
     return self.frame.height
   }
   
+  
+  /// Use this method in your custom UIView with a specified Xib, to add your xib content at creation
   open func ex_initXib() {
     let view = ex_instantiateFromNib()
     view.frame = bounds
@@ -69,6 +73,10 @@ extension UIView {
     addSubview(view)
   }
   
+  
+  /// Create and retrieve the root UIView of your Xib based on the current UIView class name
+  ///
+  /// - returns: The root view of your Xib
   open func ex_instantiateFromNib() -> UIView {
     let nibName = String(describing: type(of: self))
     let bundle = Bundle(for: type(of: self))
@@ -79,6 +87,11 @@ extension UIView {
     return view
   }
   
+  
+  /// Add a subview into the current UIView with potential insets.
+  ///
+  /// - parameter subview: Child view
+  /// - parameter insets:  Insets explainded between the child and your current view
   open func ex_addSubview(_ subview: UIView, insets: UIEdgeInsets) {
     subview.translatesAutoresizingMaskIntoConstraints = false
     self.addSubview(subview)
@@ -97,6 +110,8 @@ extension UIView {
                                                        views: ["" : subview]))
   }
   
+  
+  /// Recursively remove all your related subviews
   open func ex_removeAllSubViews() {
     let allSubviews = self.subviews
     
@@ -105,12 +120,22 @@ extension UIView {
     }
   }
   
+  
+  /// Recursively hide all your related subviews
+  ///
+  /// - parameter hidden: True to hide all your subviews
   open func ex_setAllSubviewsHidden(_ hidden: Bool) {
     self.subviews.forEach { (view) in
       view.isHidden = hidden
     }
   }
   
+  
+  /// This will create a gradient into your current UIView (so this is available for UIImageView)
+  /// Be sure to have a background color dark to have good results
+  ///
+  /// - parameter radius:    If you want to specify radius according to your parent view
+  /// - parameter direction: see ExtraGradientDirection
   open func ex_addClearToDarkGradient(radius: CGFloat = 0, direction: ExtraGradientDirection) {
     let gradient = CAGradientLayer()
     gradient.masksToBounds = true
