@@ -3,13 +3,10 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
-osx_image: xcode8
-before_install:
- - gem install xcpretty -N --no-ri --no-rdoc
- - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
- - pod install --project-directory=Example
+osx_image: xcode8.1
+xcode_project: Example/Extra.xcodeproj
 script:
-- |
-  set -o pipefail
-  xcodebuild clean test -workspace Example/Extra.xcworkspace -scheme Extra-Example -destination "platform=iOS Simulator,name=iPhone 6 Plus" | xcpretty
-#- pod lib lint
+- pod lib lint --verbose
+- cd Example
+- pod install
+- scan -s Extra-Example
