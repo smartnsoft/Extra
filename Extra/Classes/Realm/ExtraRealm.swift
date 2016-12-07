@@ -11,4 +11,3 @@ import RealmSwift
 
 extension Object: ExtraCompatible {}
 extension Realm: ExtraCompatible {}
-extension Results: ExtraCompatible {}
