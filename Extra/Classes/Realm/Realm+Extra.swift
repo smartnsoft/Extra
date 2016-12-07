@@ -27,7 +27,7 @@ extension Extra where Base: Realm {
   ///
   /// - Parameter config: Your specific Realm configuration to retrieve
   /// - Returns: Realm safe instance
-  public static func safeInstane(config: Realm.Configuration) -> Realm {
+  public static func safeInstance(config: Realm.Configuration) -> Realm {
     do {
       return try Realm(configuration: config)
     } catch {

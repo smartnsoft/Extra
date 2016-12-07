@@ -33,6 +33,7 @@ extension Extra where Base: UICollectionView {
   /// - parameter accordingTo: The cell at the vertical top of your layout
   /// - parameter animated:    False by default
   public func scrollVertically(to: IndexPath, accordingTo: IndexPath, animated: Bool = false) {
+    
     if let dataSource = self.base.dataSource {
       let topCell = dataSource.collectionView(self.base, cellForItemAt: accordingTo)
       let bottomCell = dataSource.collectionView(self.base, cellForItemAt: to)
@@ -41,13 +42,15 @@ extension Extra where Base: UICollectionView {
       if diff > 0 {
         if diff < (topCell.frame.origin.y - self.base.contentOffset.y) {
           DispatchQueue.main.async {
-            self.base.setContentOffset(CGPoint(x: 0, y: self.base.contentOffset.y + diff),
-                                  animated: animated)
+            let offsetPoint = CGPoint(x: 0, y: self.base.contentOffset.y + diff)
+            self.base.setContentOffset(offsetPoint,
+                                       animated: animated)
           }
         } else {
           DispatchQueue.main.async {
-            self.base.setContentOffset(CGPoint(x: 0, y: self.base.contentOffset.y + (topCell.frame.origin.y - self.base.contentOffset.y)),
-                                  animated: animated)
+            let offsetPoint = CGPoint(x: 0, y: self.base.contentOffset.y + (topCell.frame.origin.y - self.base.contentOffset.y))
+            self.base.setContentOffset(offsetPoint,
+                                       animated: animated)
           }
         }
       }

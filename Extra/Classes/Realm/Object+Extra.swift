@@ -18,7 +18,8 @@ extension Extra where Base: Object {
   /// - parameter inRealm: Specify a Realm if needed, otherwise the default Realm will be used
   ///
   /// - throws: Realm exception
-  public func addWithUpdate(update: Bool = true, in inRealm: Realm? = nil) throws {
+  public func add(in inRealm: Realm? = nil, update: Bool = true) throws {
+    
     var realm: Realm
     if let inRealm = inRealm {
       realm = inRealm

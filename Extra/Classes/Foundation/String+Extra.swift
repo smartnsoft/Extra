@@ -17,6 +17,7 @@ extension String {
   ///
   /// - returns: computed height according to the string length
   public func heightConstrained(to width: CGFloat, attributes: [String : Any]? = nil) -> CGFloat {
+    
     let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     
     let boundingBox = self.boundingRect(with: constraintRect,
@@ -31,6 +32,7 @@ extension String {
   ///
   /// - returns: True or false mail validation
   public func isValidEmail() -> Bool {
+    
     guard self.isEmpty == false else {
       return false
     }
@@ -48,6 +50,7 @@ extension String {
   
   /// Capitalize only the first letter of the entire string (localized capitalized)
   public func firstCapitalized() -> String {
+    
     if self.isEmpty { return self }
     var result = self
     result = result.substring(to: result.startIndex).localizedCapitalized

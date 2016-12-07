@@ -18,6 +18,7 @@ extension Extra where Base: UIImage {
   ///
   /// - returns: UIImage generated for the designated color
   public static func from(color: UIColor) -> UIImage? {
+    
     let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
     
     UIGraphicsBeginImageContext(rect.size)
@@ -42,7 +43,8 @@ extension Extra where Base: UIImage {
       let filterBlackAndWhite = CIFilter(name: "CIColorMonochrome")
       filterBlackAndWhite?.setDefaults()
       filterBlackAndWhite?.setValue(ciImage, forKey: kCIInputImageKey)
-      filterBlackAndWhite?.setValue(CIColor.init(red: 1, green: 1, blue: 1), forKey: "inputColor")
+      filterBlackAndWhite?.setValue(CIColor.init(red: 1, green: 1, blue: 1),
+                                    forKey: "inputColor")
       
       let context = CIContext()
       let outputImage = filterBlackAndWhite?.outputImage
@@ -72,10 +74,10 @@ extension Extra where Base: UIImage {
     
     UIGraphicsBeginImageContextWithOptions(rotatedSize, false, self.base.scale)
     if let bitmap = UIGraphicsGetCurrentContext() {
-    
-    bitmap.translateBy(x: (rotatedSize.width / 2), y: (rotatedSize.height / 2))
-    bitmap.rotate(by: radians)
-    bitmap.scaleBy(x: 1.0, y: -1.0)
+      
+      bitmap.translateBy(x: (rotatedSize.width / 2), y: (rotatedSize.height / 2))
+      bitmap.rotate(by: radians)
+      bitmap.scaleBy(x: 1.0, y: -1.0)
     }
     
     self.base.draw(at: CGPoint(x: (-rotatedSize.width / 2), y: (-rotatedSize.height / 2)))
@@ -94,6 +96,7 @@ extension Extra where Base: UIImage {
   ///
   /// - returns: Resized image
   public func scaledFilledToSize(size: CGSize) -> UIImage? {
+    
     let scale = UIScreen.main.scale
     UIGraphicsBeginImageContextWithOptions(size, false, scale)
     
@@ -117,7 +120,8 @@ extension Extra where Base: UIImage {
       newWidth = newWidth * ratio
     }
     
-    self.base.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+    self.base.draw(in: CGRect(x: 0, y: 0,
+                              width: newWidth, height: newHeight))
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
@@ -127,11 +131,15 @@ extension Extra where Base: UIImage {
   
   /// Simple reisze of your image based to it center
   ///
-  /// - returns: 
+  /// - returns:
   public func resizableImageByCenter() -> UIImage {
+    
     let topBottom = self.base.size.height / 2
     let leftRight = self.base.size.width / 2
-    let capInsets = UIEdgeInsets(top: topBottom, left: leftRight, bottom: topBottom, right: leftRight)
+    let capInsets = UIEdgeInsets(top: topBottom,
+                                 left: leftRight,
+                                 bottom: topBottom,
+                                 right: leftRight)
     
     return self.base.resizableImage(withCapInsets: capInsets)
   }
@@ -149,7 +157,10 @@ extension Extra where Base: UIImage {
     context.setBlendMode(.sourceIn)
     context.setFillColor(color.cgColor)
     
-    let fillRect = CGRect(x: 0.0, y: self.base.size.height - height, width: self.base.size.width, height: height)
+    let fillRect = CGRect(x: 0.0,
+                          y: self.base.size.height - height,
+                          width: self.base.size.width,
+                          height: height)
     context.fill(fillRect)
     
     guard let image = UIGraphicsGetImageFromCurrentImageContext() else {

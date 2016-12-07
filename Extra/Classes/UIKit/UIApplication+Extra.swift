@@ -8,12 +8,12 @@
 
 extension Extra where Base: UIApplication {
   
-    public static func showActivityIndicator() {
-      UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    public static func hideActivityIndicator() {
-      UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
+  public static func showActivityIndicator() {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+  }
+  
+  public static func hideActivityIndicator() {
+    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+  }
   
 }

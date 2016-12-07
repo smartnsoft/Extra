@@ -17,6 +17,7 @@ extension Extra where Base: UIColor {
   ///
   /// - returns: The filled color image
   public func toImage(size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
+    
     let rect = CGRect(x:0, y:0, width: size.width, height: size.height)
     UIGraphicsBeginImageContextWithOptions(size, false, 0)
     self.base.setFill()
@@ -35,6 +36,7 @@ extension Extra where Base: UIColor {
   ///
   /// - returns: generated UIColor
   public static func fromHexa(_ hexaString: String, alpha: CGFloat = 1) -> UIColor? {
+    
     guard !hexaString.isEmpty else {
       return nil
     }
@@ -51,9 +53,13 @@ extension Extra where Base: UIColor {
     if formatedHexa.characters.count == 4 {
       
       let hexaString = formatedHexa as NSString
-      formatedHexa = "#" + hexaString.substring(with: NSRange(location: 1, length: 1)) + hexaString.substring(with: NSRange(location: 1, length: 1))
-      + hexaString.substring(with: NSRange(location: 2, length: 1)) + hexaString.substring(with: NSRange(location: 2, length: 1))
-      + hexaString.substring(with: NSRange(location: 3, length: 1)) + hexaString.substring(with: NSRange(location: 3, length: 1))
+      formatedHexa = "#"
+        + hexaString.substring(with: NSRange(location: 1, length: 1))
+        + hexaString.substring(with: NSRange(location: 1, length: 1))
+        + hexaString.substring(with: NSRange(location: 2, length: 1))
+        + hexaString.substring(with: NSRange(location: 2, length: 1))
+        + hexaString.substring(with: NSRange(location: 3, length: 1))
+        + hexaString.substring(with: NSRange(location: 3, length: 1))
     }
     
     let hexaString = formatedHexa as NSString
@@ -72,9 +78,9 @@ extension Extra where Base: UIColor {
     Scanner(string: blueHex).scanHexInt32(&blue)
     
     
-    let color = UIColor(red: CGFloat(red)/255,
-                        green: CGFloat(green)/255,
-                        blue: CGFloat(blue)/255,
+    let color = UIColor(red: CGFloat(red) / 255,
+                        green: CGFloat(green) / 255,
+                        blue: CGFloat(blue) / 255,
                         alpha: alpha)
     
     

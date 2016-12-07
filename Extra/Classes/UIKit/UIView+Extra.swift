@@ -40,9 +40,10 @@ public enum ExtraGradientDirection {
 
 extension Extra where Base: UIView {
   
-
+  
   /// Use this method in your custom UIView with a specified Xib, to add your xib content at creation
   public func initXib() {
+    
     let view = instantiateFromNib()
     view.frame = self.base.bounds
     view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -54,6 +55,7 @@ extension Extra where Base: UIView {
   ///
   /// - returns: The root view of your Xib
   public func instantiateFromNib() -> UIView {
+    
     let nibName = String(describing: type(of: self))
     let bundle = Bundle(for: type(of: self.base))
     let nib = UINib(nibName: nibName, bundle: bundle)
@@ -69,6 +71,7 @@ extension Extra where Base: UIView {
   /// - parameter subview: Child view
   /// - parameter insets:  Insets explainded between the child and your current view
   public func addSubview(_ subview: UIView, insets: UIEdgeInsets) {
+    
     subview.translatesAutoresizingMaskIntoConstraints = false
     self.base.addSubview(subview)
     
@@ -76,19 +79,20 @@ extension Extra where Base: UIView {
     let vConstraint = "V:|-\(insets.top)-[view]-\(insets.bottom)-|"
     
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: hConstraint,
-                                                       options: NSLayoutFormatOptions(rawValue: 0),
-                                                       metrics: nil,
-                                                       views: ["" : subview]))
+                                                            options: NSLayoutFormatOptions(rawValue: 0),
+                                                            metrics: nil,
+                                                            views: ["" : subview]))
     
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: vConstraint,
-                                                       options: NSLayoutFormatOptions(rawValue: 0),
-                                                       metrics: nil,
-                                                       views: ["" : subview]))
+                                                            options: NSLayoutFormatOptions(rawValue: 0),
+                                                            metrics: nil,
+                                                            views: ["" : subview]))
   }
   
   
   /// Recursively remove all your related subviews
   public func removeAllSubViews() {
+    
     let allSubviews = self.base.subviews
     
     for view in allSubviews {
@@ -113,6 +117,7 @@ extension Extra where Base: UIView {
   /// - parameter radius:    If you want to specify radius according to your parent view
   /// - parameter direction: see ExtraGradientDirection
   public func addClearToDarkGradient(radius: CGFloat = 0, direction: ExtraGradientDirection) {
+    
     let gradient = CAGradientLayer()
     gradient.masksToBounds = true
     gradient.cornerRadius = radius

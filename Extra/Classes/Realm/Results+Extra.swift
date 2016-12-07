@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-extension Results {
+public extension Results {
   
   
   /// Convert your Results<T> to a sequence
@@ -30,13 +30,13 @@ extension Results {
   }
 }
 
-extension RealmSwift.List {
+public extension RealmSwift.List {
   
   
   /// Convert your List<T> to a sequence
   ///
   /// - returns: Sequence [T]
-  open func toArray() -> [T] {
+  public func toArray() -> [T] {
     return self.map { $0 }
   }
 }

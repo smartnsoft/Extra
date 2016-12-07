@@ -9,6 +9,6 @@
 import Foundation
 import RealmSwift
 
-extension Object : ExtraCompatible {}
-extension Realm : ExtraCompatible {}
-extension Results : ExtraCompatible {}
+extension Object: ExtraCompatible {}
+extension Realm: ExtraCompatible {}
+extension Results: ExtraCompatible {}

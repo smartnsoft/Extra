@@ -8,7 +8,6 @@
 
 extension Extra where Base: UICollectionViewCell {
   
-  
   /// The current collection view linked to your cell
   public var collectionView: UICollectionView? {
     var view: UIView? = self.base.superview
