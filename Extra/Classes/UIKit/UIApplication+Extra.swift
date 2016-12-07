@@ -6,13 +6,14 @@
 //
 //
 
-extension UIApplication {
+extension Extra where Base: UIApplication {
   
-  open static func ex_showActivityIndicator() {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
-  }
+    public static func showActivityIndicator() {
+      UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    public static func hideActivityIndicator() {
+      UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
   
-  open static func ex_hideActivityIndicator() {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-  }
 }

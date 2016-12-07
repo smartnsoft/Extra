@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UIImage {
+extension Extra where Base: UIImage {
   
   
   /// Creates an UIImage from and UIColor
@@ -17,7 +17,7 @@ extension UIImage {
   /// - parameter color: Based color for image generation
   ///
   /// - returns: UIImage generated for the designated color
-  open static func ex_from(color: UIColor) -> UIImage? {
+  public static func from(color: UIColor) -> UIImage? {
     let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
     
     UIGraphicsBeginImageContext(rect.size)
@@ -36,9 +36,9 @@ extension UIImage {
   /// Transforms the current image to a new one with the CIColorMonochrome filter, with black input color
   ///
   /// - returns: the transformed image in Black&White
-  open func ex_toBlackAndWhite() -> UIImage? {
+  public func toBlackAndWhite() -> UIImage? {
     
-    if let ciImage = self.ciImage {
+    if let ciImage = self.base.ciImage {
       let filterBlackAndWhite = CIFilter(name: "CIColorMonochrome")
       filterBlackAndWhite?.setDefaults()
       filterBlackAndWhite?.setValue(ciImage, forKey: kCIInputImageKey)
@@ -61,16 +61,16 @@ extension UIImage {
   /// - parameter degrees: Rotation clock direction
   ///
   /// - returns: Roated original image
-  open func ex_imageRotatedByDegrees(degrees: CGFloat) -> UIImage? {
+  public func imageRotatedByDegrees(degrees: CGFloat) -> UIImage? {
     
     let radians = degrees * CGFloat(M_PI / 180)
     
-    let rotatedViewBox = UIView(frame: CGRect(origin: CGPoint.zero, size: self.size))
+    let rotatedViewBox = UIView(frame: CGRect(origin: CGPoint.zero, size: self.base.size))
     let transform = CGAffineTransform(rotationAngle: radians)
     rotatedViewBox.transform = transform
     let rotatedSize = rotatedViewBox.frame.size
     
-    UIGraphicsBeginImageContextWithOptions(rotatedSize, false, self.scale)
+    UIGraphicsBeginImageContextWithOptions(rotatedSize, false, self.base.scale)
     if let bitmap = UIGraphicsGetCurrentContext() {
     
     bitmap.translateBy(x: (rotatedSize.width / 2), y: (rotatedSize.height / 2))
@@ -78,7 +78,7 @@ extension UIImage {
     bitmap.scaleBy(x: 1.0, y: -1.0)
     }
     
-    self.draw(at: CGPoint(x: (-rotatedSize.width / 2), y: (-rotatedSize.height / 2)))
+    self.base.draw(at: CGPoint(x: (-rotatedSize.width / 2), y: (-rotatedSize.height / 2)))
     
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
@@ -93,12 +93,12 @@ extension UIImage {
   /// - parameter size: Your size into fit/resize your original UIImage
   ///
   /// - returns: Resized image
-  open func ex_scaledFilledToSize(size: CGSize) -> UIImage? {
+  public func scaledFilledToSize(size: CGSize) -> UIImage? {
     let scale = UIScreen.main.scale
     UIGraphicsBeginImageContextWithOptions(size, false, scale)
     
-    let oldWidth = self.size.width
-    let oldHeight = self.size.height
+    let oldWidth = self.base.size.width
+    let oldHeight = self.base.size.height
     
     let scaleFactor = (oldWidth > oldHeight) ? size.width / oldWidth : size.height / oldHeight
     
@@ -117,7 +117,7 @@ extension UIImage {
       newWidth = newWidth * ratio
     }
     
-    self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+    self.base.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
     let newImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
@@ -128,20 +128,20 @@ extension UIImage {
   /// Simple reisze of your image based to it center
   ///
   /// - returns: 
-  open func ex_resizableImageByCenter() -> UIImage {
-    let topBottom = self.size.height / 2
-    let leftRight = self.size.width / 2
+  public func resizableImageByCenter() -> UIImage {
+    let topBottom = self.base.size.height / 2
+    let leftRight = self.base.size.width / 2
     let capInsets = UIEdgeInsets(top: topBottom, left: leftRight, bottom: topBottom, right: leftRight)
     
-    return self.resizableImage(withCapInsets: capInsets)
+    return self.base.resizableImage(withCapInsets: capInsets)
   }
   
-  open func ex_filled(withOverlayColor color: UIColor, ratio: CGFloat) -> UIImage {
-    let height = self.size.height * min(ratio, 1.0)
-    let rect = CGRect(origin: CGPoint.zero, size: self.size)
+  public func filled(withOverlayColor color: UIColor, ratio: CGFloat) -> UIImage {
+    let height = self.base.size.height * min(ratio, 1.0)
+    let rect = CGRect(origin: CGPoint.zero, size: self.base.size)
     
-    UIGraphicsBeginImageContextWithOptions(self.size, false, 0.0)
-    draw(in: rect)
+    UIGraphicsBeginImageContextWithOptions(self.base.size, false, 0.0)
+    self.base.draw(in: rect)
     
     guard let context = UIGraphicsGetCurrentContext() else {
       fatalError("Unable to retrieve a context to draw")
@@ -149,7 +149,7 @@ extension UIImage {
     context.setBlendMode(.sourceIn)
     context.setFillColor(color.cgColor)
     
-    let fillRect = CGRect(x: 0.0, y: self.size.height - height, width: self.size.width, height: height)
+    let fillRect = CGRect(x: 0.0, y: self.base.size.height - height, width: self.base.size.width, height: height)
     context.fill(fillRect)
     
     guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
@@ -161,9 +161,9 @@ extension UIImage {
   }
   
   //temp
-  func ex_scaleImage(toFactor factor: CGFloat) -> UIImage? {
+  func scaleImage(toFactor factor: CGFloat) -> UIImage? {
     
-    guard let cgImage = self.cgImage, let colorSpace = cgImage.colorSpace else {
+    guard let cgImage = self.base.cgImage, let colorSpace = cgImage.colorSpace else {
       return nil
     }
     

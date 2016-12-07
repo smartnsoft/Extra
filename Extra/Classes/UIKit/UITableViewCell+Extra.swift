@@ -8,11 +8,11 @@
 
 import Foundation
 
-extension UITableViewCell {
+extension Extra where Base: UITableViewCell {
   
   /// The current table view linked to your cell
-  open var tableView: UITableView? {
-    var view: UIView? = self.superview
+  public var tableView: UITableView? {
+    var view: UIView? = self.base.superview
     repeat {
       if let tableView = view as? UITableView {
         return tableView

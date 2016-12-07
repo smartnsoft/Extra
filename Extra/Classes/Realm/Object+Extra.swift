@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-extension Object {
+extension Extra where Base: Object {
   
   
   /// Simply write and add your update in Realm
@@ -18,7 +18,7 @@ extension Object {
   /// - parameter inRealm: Specify a Realm if needed, otherwise the default Realm will be used
   ///
   /// - throws: Realm exception
-  open func addWithUpdate(update: Bool = true, in inRealm: Realm? = nil) throws {
+  public func addWithUpdate(update: Bool = true, in inRealm: Realm? = nil) throws {
     var realm: Realm
     if let inRealm = inRealm {
       realm = inRealm
@@ -27,7 +27,7 @@ extension Object {
     }
     
     try realm.write({ () -> Void in
-      realm.add(self, update: update)
+      realm.add(self.base, update: update)
       try realm.commitWrite()
     })
   }

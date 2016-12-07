@@ -8,18 +8,18 @@
 
 import Foundation
 
-extension UINavigationController {
+extension Extra where Base: UINavigationController {
   
   
   /// The effect is like a replacement of the current stack, but just the last one UIViewController
   ///
   /// - parameter controller: The view controller to push / for replacement
-  open func ex_popPreviousAndPushViewController(_ controller: UIViewController) {
-    if !self.viewControllers.isEmpty {
-      self.popViewController(animated: false)
-      self.pushViewController(controller, animated: false)
+  public func popPreviousAndPushViewController(_ controller: UIViewController) {
+    if !self.base.viewControllers.isEmpty {
+      self.base.popViewController(animated: false)
+      self.base.pushViewController(controller, animated: false)
     } else {
-      self.setViewControllers([controller], animated: false)
+      self.base.setViewControllers([controller], animated: false)
     }
   }
   
@@ -28,10 +28,10 @@ extension UINavigationController {
   ///
   /// - parameter numberOf: Number of controllers to pop
   /// - parameter animated: Default is true
-  open func ex_popViewControllers(numberOf: Int, animated: Bool = true) {
+  public func popViewControllers(numberOf: Int, animated: Bool = true) {
     
-    let subControllers = self.viewControllers[0..<numberOf].map { $0 }
+    let subControllers = self.base.viewControllers[0..<numberOf].map { $0 }
     
-    self.setViewControllers(subControllers, animated: animated)
+    self.base.setViewControllers(subControllers, animated: animated)
   }
 }

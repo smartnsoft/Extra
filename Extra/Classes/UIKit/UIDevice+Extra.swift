@@ -8,13 +8,13 @@
 
 import Foundation
 
-extension UIDevice {
+extension Extra where Base: UIDevice {
   
-  open static func ex_isPad() -> Bool {
+  public static func isPad() -> Bool {
     return UIDevice.current.userInterfaceIdiom == .pad
   }
   
-  open static func ex_isPhone() -> Bool {
+  public static func isPhone() -> Bool {
     return UIDevice.current.userInterfaceIdiom == .phone
   }
 }

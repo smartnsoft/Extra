@@ -30,6 +30,8 @@ Usefull extensions in Swift 3 for your Cocoa Touch projects, make with love by S
   s.ios.deployment_target = '9.0'
 
   s.ios.frameworks        = 'UIKit', 'QuartzCore', 'Foundation'
+
+  s.source_files = "Extra/Classes/Extra/**/*.{swift}"
   
   s.subspec 'UIKit' do |sp|
     sp.source_files = "Extra/Classes/UIKit/**/*.{swift}"

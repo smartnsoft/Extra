@@ -8,38 +8,38 @@
 
 import Foundation
 
-extension UITableView {
+extension Extra where Base: UITableView {
   
   
   /// Configure and set the global table HeaderView and correctly set the frame to the fitting size
   ///
   /// - parameter headerView: Your custom header view
   /// - parameter edges:      Specify potential spacing insets
-  open func ex_setAndLayoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
-    self.tableHeaderView = headerView
+  public func setAndLayoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
+    self.base.tableHeaderView = headerView
     headerView.setNeedsLayout()
     headerView.layoutIfNeeded()
-    ex_layoutTableHeaderView(headerView, edges: edges)
+    self.layoutTableHeaderView(headerView, edges: edges)
   }
   
   /// Automatic height for your header. Call it on didLayoutSubviews
   ///
   /// - parameter headerView: Your custom header view
   /// - parameter edges:      Specify potential spacing insets
-  open func ex_layoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
+  public func layoutTableHeaderView(_ headerView: UIView, edges: UIEdgeInsets? = nil) {
     var horizontalMargins: CGFloat = 0
     var verticalMargins: CGFloat = 0
     if let edges = edges {
       horizontalMargins = edges.left + edges.right
       verticalMargins = edges.top + edges.bottom
     }
-    let height = headerView.systemLayoutSizeFitting(CGSize(width: self.frame.width - horizontalMargins,
+    let height = headerView.systemLayoutSizeFitting(CGSize(width: self.base.frame.width - horizontalMargins,
                                                            height: CGFloat.greatestFiniteMagnitude)).height
     
     var frame = headerView.frame
     frame.size.height = height + verticalMargins
     headerView.frame = frame
-    self.tableHeaderView = headerView
+    self.base.tableHeaderView = headerView
   }
   
   
@@ -47,11 +47,11 @@ extension UITableView {
   ///
   /// - parameter footerView: Your custom header view
   /// - parameter edges:      Specify potential spacing insets
-  open func ex_setAndLayoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
-    self.tableFooterView = footerView
+  public func setAndLayoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
+    self.base.tableFooterView = footerView
     footerView.setNeedsLayout()
     footerView.layoutIfNeeded()
-    ex_layoutTableFooterView(footerView, edges: edges)
+    self.layoutTableFooterView(footerView, edges: edges)
   }
   
   
@@ -59,19 +59,19 @@ extension UITableView {
   ///
   /// - parameter footerView: Your custom header view
   /// - parameter edges:      Specify potential spacing insets
-  open func ex_layoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
+  public func layoutTableFooterView(_ footerView: UIView, edges: UIEdgeInsets? = nil) {
     var horizontalMargins: CGFloat = 0
     var verticalMargins: CGFloat = 0
     if let edges = edges {
       horizontalMargins = edges.left + edges.right
       verticalMargins = edges.top + edges.bottom
     }
-    let height = footerView.systemLayoutSizeFitting(CGSize(width: self.frame.width - horizontalMargins,
+    let height = footerView.systemLayoutSizeFitting(CGSize(width: self.base.frame.width - horizontalMargins,
                                                            height: CGFloat.greatestFiniteMagnitude)).height
     
     var frame = footerView.frame
     frame.size.height = height + verticalMargins
     footerView.frame = frame
-    self.tableFooterView = footerView
+    self.base.tableFooterView = footerView
   }
 }

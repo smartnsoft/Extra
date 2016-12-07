@@ -6,37 +6,37 @@
 //
 //
 
-extension UIViewController {
+extension Extra where Base: UIViewController {
   
   /// Returns the current application's top most view controller.
-  open class func ex_topMost() -> UIViewController? {
+  public static func topMost() -> UIViewController? {
     let rootViewController = UIApplication.shared.windows.first?.rootViewController
-    return self.ex_topMost(of: rootViewController)
+    return self.topMost(of: rootViewController)
   }
   
   /// Returns the top most view controller from given view controller's stack.
-  open class func ex_topMost(of viewController: UIViewController?) -> UIViewController? {
+  public static func topMost(of viewController: UIViewController?) -> UIViewController? {
     // UITabBarController
     if let tabBarController = viewController as? UITabBarController,
       let selectedViewController = tabBarController.selectedViewController {
-      return self.ex_topMost(of: selectedViewController)
+      return self.topMost(of: selectedViewController)
     }
     
     // UINavigationController
     if let navigationController = viewController as? UINavigationController,
       let visibleViewController = navigationController.visibleViewController {
-      return self.ex_topMost(of: visibleViewController)
+      return self.topMost(of: visibleViewController)
     }
     
     // presented view controller
     if let presentedViewController = viewController?.presentedViewController {
-      return self.ex_topMost(of: presentedViewController)
+      return self.topMost(of: presentedViewController)
     }
     
     // child view controller
     for subview in viewController?.view?.subviews ?? [] {
       if let childViewController = subview.next as? UIViewController {
-        return self.ex_topMost(of: childViewController)
+        return self.topMost(of: childViewController)
       }
     }
     
@@ -49,11 +49,11 @@ extension UIViewController {
   /// - parameter childController: The embeded child view controller
   /// - parameter container:       The destination container view
   /// - parameter insets:          The desired insets betwenn you child and its container
-  open func ex_addChildViewController(_ childController: UIViewController, in container: UIView, insets: UIEdgeInsets = .zero) {
+  public func addChildViewController(_ childController: UIViewController, in container: UIView, insets: UIEdgeInsets = .zero) {
     
     if let childView = childController.view {
-      self.addChildViewController(childController)
-      container.ex_addSubview(childView, insets: insets)
+      self.base.addChildViewController(childController)
+      container.ex.addSubview(childView, insets: insets)
     } else {
       fatalError("Your view controller \(childController) does not contain any view")
     }
@@ -68,28 +68,28 @@ extension UIViewController {
   /// - parameter viewContainer:         Your child view container
   /// - parameter duration:              Specify the animation duration. Default 0, set a value > 0 to enable animation
   /// - parameter transitionOptions:     Your switch transition animation options
-  open func ex_switchChilds(from originController: UIViewController?,
+  public func switchChilds(from originController: UIViewController?,
                          to destinationController: UIViewController,
                          in viewContainer: UIView,
                          duration: TimeInterval = 0,
                          transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve) {
     
     originController?.willMove(toParentViewController: nil)
-    self.addChildViewController(destinationController)
+    self.base.addChildViewController(destinationController)
     
     if let childView = destinationController.view {
-      viewContainer.ex_addSubview(childView, insets: .zero)
+      viewContainer.ex.addSubview(childView, insets: .zero)
     }
     
     if let originController = originController {
-      self.transition(from: originController,
+      self.base.transition(from: originController,
                       to: destinationController,
                       duration: duration,
                       options: transitionOptions,
                       animations: nil,
                       completion: { (completed) in
                         originController.removeFromParentViewController()
-                        destinationController.didMove(toParentViewController: self)
+                        destinationController.didMove(toParentViewController: self.base)
                         
       })
     } else {
@@ -97,7 +97,7 @@ extension UIViewController {
       UIView.animate(withDuration: duration, animations: { 
         destinationController.view.alpha = 1
         }, completion: { (finished) in
-          destinationController.didMove(toParentViewController: self)
+          destinationController.didMove(toParentViewController: self.base)
       })
     }
   }

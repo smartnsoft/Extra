@@ -8,19 +8,19 @@
 
 import Foundation
 
-extension UICollectionView {
+extension Extra where Base: UICollectionView {
   
   
   /// Check the index path pointer by the center point
   /// Usefull when you want to constently check the user scrolling and change a page indicator
   ///
   /// - returns: founded indexPath
-  open func ex_currentIndexPathForCenter() -> IndexPath? {
+  public func currentIndexPathForCenter() -> IndexPath? {
     
-    let point = CGPoint(x: self.frame.width / 2 + self.contentOffset.x,
-                        y: self.frame.height / 2 + self.contentOffset.y)
+    let point = CGPoint(x: self.base.frame.width / 2 + self.base.contentOffset.x,
+                        y: self.base.frame.height / 2 + self.base.contentOffset.y)
     
-    let indexPath = self.indexPathForItem(at: point)
+    let indexPath = self.base.indexPathForItem(at: point)
     
     return indexPath
   }
@@ -32,21 +32,21 @@ extension UICollectionView {
   /// - parameter to:          The cell, under your according cell, that you want to display entirely
   /// - parameter accordingTo: The cell at the vertical top of your layout
   /// - parameter animated:    False by default
-  open func ex_scrollVertically(to: IndexPath, accordingTo: IndexPath, animated: Bool = false) {
-    if let dataSource = self.dataSource {
-      let topCell = dataSource.collectionView(self, cellForItemAt: accordingTo)
-      let bottomCell = dataSource.collectionView(self, cellForItemAt: to)
-      let diff = (bottomCell.frame.origin.y + bottomCell.frame.size.height) - (self.contentOffset.y + self.frame.size.height)
+  public func scrollVertically(to: IndexPath, accordingTo: IndexPath, animated: Bool = false) {
+    if let dataSource = self.base.dataSource {
+      let topCell = dataSource.collectionView(self.base, cellForItemAt: accordingTo)
+      let bottomCell = dataSource.collectionView(self.base, cellForItemAt: to)
+      let diff = (bottomCell.frame.origin.y + bottomCell.frame.size.height) - (self.base.contentOffset.y + self.base.frame.size.height)
       
       if diff > 0 {
-        if diff < (topCell.frame.origin.y - self.contentOffset.y) {
+        if diff < (topCell.frame.origin.y - self.base.contentOffset.y) {
           DispatchQueue.main.async {
-            self.setContentOffset(CGPoint(x: 0, y: self.contentOffset.y + diff),
+            self.base.setContentOffset(CGPoint(x: 0, y: self.base.contentOffset.y + diff),
                                   animated: animated)
           }
         } else {
           DispatchQueue.main.async {
-            self.setContentOffset(CGPoint(x: 0, y: self.contentOffset.y + (topCell.frame.origin.y - self.contentOffset.y)),
+            self.base.setContentOffset(CGPoint(x: 0, y: self.base.contentOffset.y + (topCell.frame.origin.y - self.base.contentOffset.y)),
                                   animated: animated)
           }
         }

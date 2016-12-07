@@ -6,12 +6,12 @@
 //
 //
 
-extension UICollectionViewCell {
+extension Extra where Base: UICollectionViewCell {
   
   
   /// The current collection view linked to your cell
-  open var collectionView: UICollectionView? {
-    var view: UIView? = self.superview
+  public var collectionView: UICollectionView? {
+    var view: UIView? = self.base.superview
     repeat {
       if let collectionView = view as? UICollectionView {
         return collectionView

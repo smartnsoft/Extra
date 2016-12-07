@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UIColor {
+extension Extra where Base: UIColor {
   
   
   /// Transform the current color to a sizable UIImage
@@ -16,10 +16,10 @@ extension UIColor {
   /// - parameter size: the desired size, default is 10/10
   ///
   /// - returns: The filled color image
-  open func ex_toImage(size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
+  public func toImage(size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
     let rect = CGRect(x:0, y:0, width: size.width, height: size.height)
     UIGraphicsBeginImageContextWithOptions(size, false, 0)
-    self.setFill()
+    self.base.setFill()
     UIRectFill(rect)
     
     let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -34,7 +34,7 @@ extension UIColor {
   /// - parameter alpha:      the desired transparence
   ///
   /// - returns: generated UIColor
-  open static func ex_fromHexa(_ hexaString: String, alpha: CGFloat = 1) -> UIColor? {
+  public static func fromHexa(_ hexaString: String, alpha: CGFloat = 1) -> UIColor? {
     guard !hexaString.isEmpty else {
       return nil
     }
