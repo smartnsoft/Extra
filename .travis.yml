@@ -8,5 +8,5 @@ xcode_project: Example/Extra.xcodeproj
 script:
 - pod lib lint --verbose
 - cd Example
-- pod install
+- pod install --repo-update
 - scan -s Extra-Example
