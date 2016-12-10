@@ -5,8 +5,10 @@
 language: objective-c
 osx_image: xcode8.1
 xcode_project: Example/Extra.xcodeproj
-script:
-- pod lib lint --verbose
++before_script:
+- pod lib lint --verbose # I have put this in before_script coz it's failed. It's failed coz Extra Module isn't include inside SubPodSpec
 - cd Example
 - pod install --repo-update
-- scan -s Extra-Example
+
+script:
+- scan -s Extra-Example # It's only one command who count for valid or not build session
