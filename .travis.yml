@@ -17,4 +17,5 @@ script:
 after_success:
 # I have put this in after_success coz it's failed.
 # It's failed coz Extra Module isn't include inside SubPodSpec
+- cd ..
 - pod lib lint --verbose
