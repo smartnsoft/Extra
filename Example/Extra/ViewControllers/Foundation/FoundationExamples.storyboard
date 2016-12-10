@@ -5,13 +5,14 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Foundation View Controller-->
         <scene sceneID="R4t-RI-eiP">
             <objects>
-                <viewController storyboardIdentifier="FoundationExamples" id="uzc-i5-Gmz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoundationExamples" id="uzc-i5-Gmz" customClass="FoundationViewController" customModule="Extra_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fDn-ql-wH6"/>
                         <viewControllerLayoutGuide type="bottom" id="uhi-tG-JcU"/>
@@ -19,12 +20,86 @@
                     <view key="view" contentMode="scaleToFill" id="YLo-vP-9tK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKm-3l-Qpn">
+                                <rect key="frame" x="16" y="67" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid mail ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NP-ET-cbF">
+                                <rect key="frame" x="16" y="38" width="161.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0NL-U4-Di3">
+                                <rect key="frame" x="197.5" y="38" width="161.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxj-Kv-hsT">
+                                <rect key="frame" x="16" y="112" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="UVw-Ry-bRH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1a-2R-z9f">
+                                <rect key="frame" x="16" y="153" width="209" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="01w-mb-IuC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-EC-Srp">
+                                <rect key="frame" x="250" y="149" width="110" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="59C-rH-fvH"/>
+                                    <constraint firstAttribute="width" constant="110" id="JvO-Nf-Swv"/>
+                                </constraints>
+                                <state key="normal" title="&lt;- Shuffle me !"/>
+                                <connections>
+                                    <action selector="didTouchShuffleButton:" destination="uzc-i5-Gmz" eventType="touchUpInside" id="dwk-or-iwB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6NP-ET-cbF" firstAttribute="leading" secondItem="YLo-vP-9tK" secondAttribute="leadingMargin" id="2MX-OH-T9j"/>
+                            <constraint firstItem="b1a-2R-z9f" firstAttribute="top" secondItem="sxj-Kv-hsT" secondAttribute="bottom" constant="20" id="4BR-PM-xwg"/>
+                            <constraint firstItem="AKm-3l-Qpn" firstAttribute="trailing" secondItem="YLo-vP-9tK" secondAttribute="trailingMargin" id="JG4-A3-R9N"/>
+                            <constraint firstItem="0NL-U4-Di3" firstAttribute="trailing" secondItem="YLo-vP-9tK" secondAttribute="trailingMargin" id="NS2-sj-VFe"/>
+                            <constraint firstItem="sxj-Kv-hsT" firstAttribute="leading" secondItem="YLo-vP-9tK" secondAttribute="leadingMargin" id="RqQ-3H-tmc"/>
+                            <constraint firstItem="b1a-2R-z9f" firstAttribute="leading" secondItem="YLo-vP-9tK" secondAttribute="leadingMargin" id="SE1-3c-IoX"/>
+                            <constraint firstItem="6NP-ET-cbF" firstAttribute="top" secondItem="fDn-ql-wH6" secondAttribute="bottom" constant="18" id="SIk-F2-Nel"/>
+                            <constraint firstItem="6NP-ET-cbF" firstAttribute="width" secondItem="0NL-U4-Di3" secondAttribute="width" id="Xab-Li-ETx"/>
+                            <constraint firstItem="sxj-Kv-hsT" firstAttribute="trailing" secondItem="YLo-vP-9tK" secondAttribute="trailingMargin" id="Yg7-Hg-l7V"/>
+                            <constraint firstItem="AKm-3l-Qpn" firstAttribute="top" secondItem="6NP-ET-cbF" secondAttribute="bottom" constant="8" id="cYz-cB-LH6"/>
+                            <constraint firstItem="AKm-3l-Qpn" firstAttribute="leading" secondItem="YLo-vP-9tK" secondAttribute="leadingMargin" id="g8A-rx-xmS"/>
+                            <constraint firstItem="0NL-U4-Di3" firstAttribute="top" secondItem="6NP-ET-cbF" secondAttribute="top" id="idi-NL-BY6"/>
+                            <constraint firstItem="sxj-Kv-hsT" firstAttribute="top" secondItem="AKm-3l-Qpn" secondAttribute="bottom" constant="15" id="mqQ-lf-nGH"/>
+                            <constraint firstItem="ofG-EC-Srp" firstAttribute="leading" secondItem="b1a-2R-z9f" secondAttribute="trailing" constant="25" id="r9f-f8-XUf"/>
+                            <constraint firstItem="0NL-U4-Di3" firstAttribute="leading" secondItem="6NP-ET-cbF" secondAttribute="trailing" constant="20" id="tM2-av-JXq"/>
+                            <constraint firstAttribute="trailing" secondItem="ofG-EC-Srp" secondAttribute="trailing" constant="15" id="vMJ-YG-aYX"/>
+                            <constraint firstItem="ofG-EC-Srp" firstAttribute="centerY" secondItem="b1a-2R-z9f" secondAttribute="centerY" id="zTA-1o-E0Y"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ibLongTextLabel" destination="sxj-Kv-hsT" id="ZH5-tn-hi0"/>
+                        <outlet property="ibMailTextField" destination="AKm-3l-Qpn" id="wZF-pn-dUr"/>
+                        <outlet property="ibShuffleLabel" destination="b1a-2R-z9f" id="BRS-xz-qkI"/>
+                        <outlet property="ibValidFeedbackLabel" destination="0NL-U4-Di3" id="6Pu-8u-WKA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hse-ku-b8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="-515"/>
+            <point key="canvasLocation" x="144.80000000000001" y="-515.8920539730135"/>
         </scene>
     </scenes>
 </document>

@@ -12,11 +12,15 @@ PODS:
   - Realm/Headers (2.1.1)
   - RealmSwift (2.1.1):
     - Realm (= 2.1.1)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
   - SwiftGen (4.0.1)
 
 DEPENDENCIES:
   - Extra (from `../`)
-  - SwiftGen
+  - RxCocoa (~> 3.0.1)
+  - SwiftGen (~> 4.0.1)
 
 EXTERNAL SOURCES:
   Extra:
@@ -26,8 +30,10 @@ SPEC CHECKSUMS:
   Extra: f57d13ad5ba5c319c96c5c0e58d1a313ce01c247
   Realm: a55959c0b171a5fe5267406d17f314fec3cefaae
   RealmSwift: 749fd955bf8d6471c21d218b9389a47aaeccfe3f
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
   SwiftGen: 04bbc1fb69add82a7a471380dfbdd00b45912d17
 
-PODFILE CHECKSUM: 6c968948858fa5b10abfd0caf11c80e5e575567d
+PODFILE CHECKSUM: da2f7e3ed3e14f0c3b4836723fcb5aec01147821
 
 COCOAPODS: 1.1.1

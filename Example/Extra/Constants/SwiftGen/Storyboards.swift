@@ -45,9 +45,20 @@ struct StoryboardScene {
   enum FoundationExamples: String, StoryboardSceneType {
     static let storyboardName = "FoundationExamples"
 
+    static func initialViewController() -> FoundationViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? FoundationViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+
     case foundationExamplesScene = "FoundationExamples"
-    static func instantiateFoundationExamples() -> UIViewController {
-      return StoryboardScene.FoundationExamples.foundationExamplesScene.viewController()
+    static func instantiateFoundationExamples() -> FoundationViewController {
+      guard let vc = StoryboardScene.FoundationExamples.foundationExamplesScene.viewController() as? FoundationViewController
+      else {
+        fatalError("ViewController 'FoundationExamples' is not of the expected class FoundationViewController.")
+      }
+      return vc
     }
   }
   enum Main: StoryboardSceneType {

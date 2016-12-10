@@ -3,7 +3,8 @@ use_frameworks!
 target 'Extra_Example' do
   pod 'Extra', :path => '../'
   
-  pod 'SwiftGen'
+  pod 'SwiftGen', '~> 4.0.1'
+  pod 'RxCocoa', '~> 3.0.1'
 
   target 'Extra_Tests' do
     inherit! :search_paths
