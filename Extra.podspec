@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Usefull extensions in Swift 3 for your Cocoa Touch projects, make with love by Smart&Soft.
+Usefull and lightfull extensions in Swift 3 for your Cocoa Touch projects, make with love by Smart&Soft.
                        DESC
 
   s.homepage         = 'https://github.com/smartnsoft/Extra'
@@ -31,18 +31,18 @@ Usefull extensions in Swift 3 for your Cocoa Touch projects, make with love by S
 
   s.ios.frameworks        = 'UIKit', 'QuartzCore', 'Foundation'
 
-  s.source_files = "Extra/Classes/Extra/**/*.{swift}"
+  s.source_files = 'Extra/Classes/Extra/**/*.{swift}'
 
   s.subspec 'UIKit' do |sp|
-    sp.source_files = "Extra/Classes/UIKit/**/*.{swift}"
+    sp.source_files = 'Extra/Classes/Extra/**/*.{swift}','Extra/Classes/UIKit/**/*.{swift}'
   end
 
   s.subspec 'Foundation' do |sp|
-    sp.source_files = "Extra/Classes/Foundation/**/*.{swift}"
+    sp.source_files = 'Extra/Classes/Foundation/**/*.{swift}'
   end
 
   s.subspec 'Realm' do |sp|
-    sp.source_files = "Extra/Classes/Realm/**/*.{swift}"
+    sp.source_files = 'Extra/Classes/Extra/**/*.{swift}','Extra/Classes/Realm/**/*.{swift}'
     sp.dependency 'RealmSwift', '~> 2.0'
   end
 end
