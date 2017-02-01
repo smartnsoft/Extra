@@ -75,18 +75,18 @@ extension Extra where Base: UIView {
     subview.translatesAutoresizingMaskIntoConstraints = false
     self.base.addSubview(subview)
     
-    let hConstraint = "H:|-\(insets.left)-[view]-\(insets.right)-|"
-    let vConstraint = "V:|-\(insets.top)-[view]-\(insets.bottom)-|"
+    let hConstraint = "H:|-\(insets.left)-[subview]-\(insets.right)-|"
+    let vConstraint = "V:|-\(insets.top)-[subview]-\(insets.bottom)-|"
     
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: hConstraint,
                                                             options: NSLayoutFormatOptions(rawValue: 0),
                                                             metrics: nil,
-                                                            views: ["" : subview]))
+                                                            views: ["subview" : subview]))
     
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: vConstraint,
                                                             options: NSLayoutFormatOptions(rawValue: 0),
                                                             metrics: nil,
-                                                            views: ["" : subview]))
+                                                            views: ["subview" : subview]))
   }
   
   
@@ -131,6 +131,21 @@ extension Extra where Base: UIView {
                        UIColor.clear.cgColor]
     
     self.base.layer.mask = gradient
+  }
+  
+  
+  /// Apply a rounded mask to the current view
+  ///
+  /// - Parameters:
+  ///   - corners: corners target
+  ///   - radius: radius to apply for corners
+  public func roundCorners(_ corners: UIRectCorner, radius: CGSize) {
+    let maskPath = UIBezierPath(roundedRect: self.base.bounds, byRoundingCorners: corners, cornerRadii: radius)
+    let maskLayer = CAShapeLayer()
+    maskLayer.frame = self.base.bounds
+    maskLayer.path = maskPath.cgPath
+    
+    self.base.layer.mask = maskLayer
   }
   
 }
