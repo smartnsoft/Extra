@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 public extension Results {
-
+  
   /// Safety getter object on your results
   ///
   /// - parameter index: The desired index
@@ -19,4 +19,13 @@ public extension Results {
   public subscript (safe index: Int) -> T? {
     return index < count && index >= 0 ? self[index] : nil
   }
+  
+  
+  /// Return results as a sequence
+  ///
+  /// - Returns: [Object]
+  public func toArray() -> [T] {
+    return self.map {$0}
+  }
+  
 }
