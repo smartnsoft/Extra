@@ -56,7 +56,7 @@ extension Extra where Base: UIView {
   /// - returns: The root view of your Xib
   public func instantiateFromNib() -> UIView {
     
-    let nibName = String(describing: type(of: self))
+    let nibName = String(describing: type(of: self.base))
     let bundle = Bundle(for: type(of: self.base))
     let nib = UINib(nibName: nibName, bundle: bundle)
     guard let view: UIView = nib.instantiate(withOwner: self.base, options: nil)[0] as? UIView else {
