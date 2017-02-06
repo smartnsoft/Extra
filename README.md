@@ -1,7 +1,10 @@
 # Extra
 
+
 [![CI Status](http://img.shields.io/travis/smartnsoft/Extra.svg?style=flat)](https://travis-ci.org/smartnsoft/Extra)
 [![Version](https://img.shields.io/cocoapods/v/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
+
+![](./Images/logo_Extra.png)
 
 ## Example
 
@@ -14,12 +17,22 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-Extra will be (officially) available through [CocoaPods](http://cocoapods.org). To install
+Extra **will be (officially)** available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "Extra"
 ```
+
+## APIS
+
+### UIKit extensions
+
+
+### Realm extensions
+
+
+### Foundation extensions
 
 ## Author
 
