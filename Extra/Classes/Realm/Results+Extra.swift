@@ -22,10 +22,10 @@ public extension Results {
   
   
   /// Return results as a sequence
-  ///
+  /// Temporary name
   /// - Returns: [Object]
-  public func toArray() -> [T] {
-    return self.map {$0}
+  public func ex_toArray() -> [T] {
+    return Array(self)
   }
   
 }
