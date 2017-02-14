@@ -17,8 +17,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     self.title = "Welcome on Extra ;)"
-    
-    
+
     let foundationCategory = ExtraCategory(title: "Foundation Extensions", action: {
       let controller = StoryboardScene.FoundationExamples.initialViewController()
       self.navigationController?.pushViewController(controller, animated: true)

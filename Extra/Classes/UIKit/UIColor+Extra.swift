@@ -45,7 +45,7 @@ extension Extra where Base: UIColor {
       formatedHexa = "#\(hexaString)"
     }
     
-    guard formatedHexa.characters.count == 7 && formatedHexa.characters.count == 4 else {
+    guard formatedHexa.characters.count == 7 || formatedHexa.characters.count == 4 else {
       print("Unsupported string format:\(formatedHexa)")
       return nil
     }
