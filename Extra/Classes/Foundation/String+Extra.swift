@@ -47,7 +47,6 @@ extension String {
     }
   }
   
-  
   /// Capitalize only the first letter of the entire string (localized capitalized)
   public func firstCapitalized() -> String {
     

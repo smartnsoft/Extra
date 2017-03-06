@@ -10,7 +10,6 @@ import Foundation
 
 extension Extra where Base: UICollectionView {
   
-  
   /// Check the index path pointer by the center point
   /// Usefull when you want to constently check the user scrolling and change a page indicator
   ///
@@ -24,7 +23,6 @@ extension Extra where Base: UICollectionView {
     
     return indexPath
   }
-  
   
   /// Correctly center the given cell at index paths to optimize the **vertical** center display.
   /// Use it for "expandable cells", if a cell is inserted into your collection view and there is no space to display it entirely, use this method.

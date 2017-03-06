@@ -20,7 +20,6 @@ public extension Results {
     return index < count && index >= 0 ? self[index] : nil
   }
   
-  
   /// Return results as a sequence
   /// Temporary name
   /// - Returns: [Object]

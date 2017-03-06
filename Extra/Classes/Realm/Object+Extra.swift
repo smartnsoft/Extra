@@ -10,8 +10,7 @@ import Foundation
 import RealmSwift
 
 extension Extra where Base: Object {
-  
-  
+    
   /// Simply write and add your update in Realm
   ///
   /// - parameter update:  Default is true if your object have a primary key

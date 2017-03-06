@@ -22,7 +22,6 @@ extension Extra where Base: Realm {
     }
   }
   
-  
   /// Return your [try Realm] instance no-throwable at any time
   ///
   /// - Parameter config: Your specific Realm configuration to retrieve

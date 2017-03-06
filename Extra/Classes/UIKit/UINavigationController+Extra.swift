@@ -10,7 +10,6 @@ import Foundation
 
 extension Extra where Base: UINavigationController {
   
-  
   /// The effect is like a replacement of the current stack, but just the last one UIViewController
   ///
   /// - parameter controller: The view controller to push / for replacement
@@ -23,7 +22,6 @@ extension Extra where Base: UINavigationController {
       self.base.setViewControllers([controller], animated: false)
     }
   }
-  
   
   /// Pop the current stack of Navigation Controller by the specified number
   ///

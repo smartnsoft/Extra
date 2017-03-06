@@ -43,7 +43,6 @@ extension Extra where Base: UIViewController {
     return viewController
   }
   
-  
   /// Simply programmatically adding a child view controller
   ///
   /// - parameter childController: The embeded child view controller
@@ -62,7 +61,6 @@ extension Extra where Base: UIViewController {
     }
     
   }
-  
   
   /// Switch between child view controllers
   ///
@@ -91,7 +89,7 @@ extension Extra where Base: UIViewController {
                            duration: duration,
                            options: transitionOptions,
                            animations: nil,
-                           completion: { (completed) in
+                           completion: { _ in
                             originController.removeFromParentViewController()
                             destinationController.didMove(toParentViewController: self.base)
                             
@@ -100,7 +98,7 @@ extension Extra where Base: UIViewController {
       destinationController.view.alpha = 0
       UIView.animate(withDuration: duration, animations: {
         destinationController.view.alpha = 1
-      }, completion: { (finished) in
+      }, completion: { _ in
         destinationController.didMove(toParentViewController: self.base)
       })
     }

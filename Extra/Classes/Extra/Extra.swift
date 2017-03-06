@@ -6,7 +6,6 @@
 //
 //
 
-
 public struct Extra<Base> {
   public let base: Base
   public init(_ base: Base) {
@@ -25,10 +24,10 @@ public protocol ExtraCompatible {
 
 public extension ExtraCompatible {
   public static var ex: Extra<Self>.Type {
-    get { return Extra<Self>.self }
+    return Extra<Self>.self
   }
   
   public var ex: Extra<Self> {
-    get { return Extra(self) }
+    return Extra(self)
   }
 }

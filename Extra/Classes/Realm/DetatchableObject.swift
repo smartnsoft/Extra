@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-//MARK: Needed to fully detach a Realm object AND its relations out from realm
+// MARK: Needed to fully detach a Realm object AND its relations out from realm
 public protocol DetachableObject: AnyObject {
   
   func detached() -> Self

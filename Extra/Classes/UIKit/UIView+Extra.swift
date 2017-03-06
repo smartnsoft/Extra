@@ -6,7 +6,6 @@
 //
 //
 
-
 /// Gradient directon to explain vertical/horizontal Y axis for a gradient, and X axis direction
 public enum ExtraGradientDirection {
   case horizontalToRight, horizontalToLeft, verticalToTop, verticalToBottom
@@ -40,7 +39,6 @@ public enum ExtraGradientDirection {
 
 extension Extra where Base: UIView {
   
-  
   /// Use this method in your custom UIView with a specified Xib, to add your xib content at creation
   public func initXib() {
     
@@ -49,7 +47,6 @@ extension Extra where Base: UIView {
     view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     self.base.addSubview(view)
   }
-  
   
   /// Create and retrieve the root UIView of your Xib based on the current UIView class name
   ///
@@ -64,7 +61,6 @@ extension Extra where Base: UIView {
     }
     return view
   }
-  
   
   /// Add a subview into the current UIView with potential insets.
   ///
@@ -81,14 +77,13 @@ extension Extra where Base: UIView {
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: hConstraint,
                                                             options: NSLayoutFormatOptions(rawValue: 0),
                                                             metrics: nil,
-                                                            views: ["subview" : subview]))
+                                                            views: ["subview": subview]))
     
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: vConstraint,
                                                             options: NSLayoutFormatOptions(rawValue: 0),
                                                             metrics: nil,
-                                                            views: ["subview" : subview]))
+                                                            views: ["subview": subview]))
   }
-  
   
   /// Recursively remove all your related subviews
   public func removeAllSubViews() {
@@ -100,7 +95,6 @@ extension Extra where Base: UIView {
     }
   }
   
-  
   /// Recursively hide all your related subviews
   ///
   /// - parameter hidden: True to hide all your subviews
@@ -109,7 +103,6 @@ extension Extra where Base: UIView {
       view.isHidden = hidden
     }
   }
-  
   
   /// This will create a gradient into your current UIView (so this is available for UIImageView)
   /// Be sure to have a background color dark to have good results
@@ -132,7 +125,6 @@ extension Extra where Base: UIView {
     
     self.base.layer.mask = gradient
   }
-  
   
   /// Apply a rounded mask to the current view
   ///

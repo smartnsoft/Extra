@@ -10,7 +10,6 @@ import Foundation
 
 extension Extra where Base: UIColor {
   
-  
   /// Transform the current color to a sizable UIImage
   ///
   /// - parameter size: the desired size, default is 10/10
@@ -27,7 +26,6 @@ extension Extra where Base: UIColor {
     UIGraphicsEndImageContext()
     return image
   }
-  
   
   /// Create a color from an hexa string
   ///
@@ -77,12 +75,10 @@ extension Extra where Base: UIColor {
     var blue: UInt32 = 0
     Scanner(string: blueHex).scanHexInt32(&blue)
     
-    
     let color = UIColor(red: CGFloat(red) / 255,
                         green: CGFloat(green) / 255,
                         blue: CGFloat(blue) / 255,
                         alpha: alpha)
-    
     
     return color
   }

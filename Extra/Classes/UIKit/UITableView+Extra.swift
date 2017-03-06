@@ -10,7 +10,6 @@ import Foundation
 
 extension Extra where Base: UITableView {
   
-  
   /// Configure and set the global table HeaderView and correctly set the frame to the fitting size
   ///
   /// - parameter headerView: Your custom header view
@@ -47,7 +46,6 @@ extension Extra where Base: UITableView {
     self.base.tableHeaderView = headerView
   }
   
-  
   /// Configure and set the global table FooterView and correctly set the frame to the fitting size
   ///
   /// - parameter footerView: Your custom header view
@@ -59,7 +57,6 @@ extension Extra where Base: UITableView {
     footerView.layoutIfNeeded()
     self.layoutTableFooterView(footerView, edges: edges)
   }
-  
   
   /// Automatic height for your footer. Call it on didLayoutSubviews
   ///

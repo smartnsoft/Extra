@@ -10,7 +10,6 @@ import Foundation
 
 extension Extra where Base: UIImage {
   
-  
   /// Creates an UIImage from and UIColor
   /// This is usefull for your UIButton to set filled background color for states
   ///
@@ -32,7 +31,6 @@ extension Extra where Base: UIImage {
     
     return image
   }
-  
   
   /// Transforms the current image to a new one with the CIColorMonochrome filter, with black input color
   ///
@@ -56,7 +54,6 @@ extension Extra where Base: UIImage {
     }
     return nil
   }
-  
   
   /// Correctly rotate your image according to the desired degrees
   ///
@@ -87,7 +84,6 @@ extension Extra where Base: UIImage {
     return image
   }
   
-  
   /// This will resize the UIImage to the destination size
   /// This will fill your UIImage (and potentially enlarge it)
   /// By this way, this will not produce empty space on top/bottom or left/right sides, the ratio will not change
@@ -110,14 +106,14 @@ extension Extra where Base: UIImage {
     
     if newHeight < size.height {
       let ratio = (size.height/newHeight)
-      newHeight = newHeight * ratio
-      newWidth = newWidth * ratio
+      newHeight *= ratio
+      newWidth *= ratio
     }
     
     if newWidth < size.width {
       let ratio = (size.width/newWidth)
-      newHeight = newHeight * ratio
-      newWidth = newWidth * ratio
+      newHeight *= ratio
+      newWidth *= ratio
     }
     
     self.base.draw(in: CGRect(x: 0, y: 0,
@@ -127,7 +123,6 @@ extension Extra where Base: UIImage {
     
     return newImage
   }
-  
   
   /// Simple reisze of your image based to it center
   ///

@@ -11,7 +11,6 @@ import RealmSwift
 
 public extension RealmSwift.List {
   
-  
   /// Return lsit of object as a sequence
   /// Temporary name
   /// - Returns: [Object]
