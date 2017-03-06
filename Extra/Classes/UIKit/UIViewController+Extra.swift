@@ -69,12 +69,14 @@ extension Extra where Base: UIViewController {
   /// - parameter viewContainer:         Your child view container
   /// - parameter duration:              Specify the animation duration. Default 0, set a value > 0 to enable animation
   /// - parameter transitionOptions:     Your switch transition animation options
+  /// - parameter completion:            Completion block when animation completes
   public func switchChilds(
     from originController: UIViewController?,
     to destinationController: UIViewController,
     in viewContainer: UIView,
     duration: TimeInterval = 0,
-    transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve) {
+    transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve,
+    completion: ((Bool) -> Void)? = nil) {
     
     originController?.willMove(toParentViewController: nil)
     self.base.addChildViewController(destinationController)
@@ -89,17 +91,19 @@ extension Extra where Base: UIViewController {
                            duration: duration,
                            options: transitionOptions,
                            animations: nil,
-                           completion: { _ in
+                           completion: { completed in
                             originController.removeFromParentViewController()
                             destinationController.didMove(toParentViewController: self.base)
+                            completion?(completed)
                             
       })
     } else {
       destinationController.view.alpha = 0
       UIView.animate(withDuration: duration, animations: {
         destinationController.view.alpha = 1
-      }, completion: { _ in
+      }, completion: { finished in
         destinationController.didMove(toParentViewController: self.base)
+        completion?(finished)
       })
     }
   }
