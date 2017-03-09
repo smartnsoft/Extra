@@ -14,13 +14,20 @@ extension Extra where Base: UIImage {
   /// This is usefull for your UIButton to set filled background color for states
   ///
   /// - parameter color: Based color for image generation
+  /// - parameter size: Based size for image generation
+  /// - parameter cornerRadius: Based cornerRadius for image generation
   ///
   /// - returns: UIImage generated for the designated color
-  public static func from(color: UIColor) -> UIImage? {
+  public static func from(color: UIColor, size: CGSize, cornerRadius: CGFloat = 0) -> UIImage? {
     
-    let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+    let rect = CGRect(origin: CGPoint.zero, size: size)
     
     UIGraphicsBeginImageContext(rect.size)
+    
+    if cornerRadius != 0 {
+      let bezierPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+      bezierPath.addClip()
+    }
     
     let context = UIGraphicsGetCurrentContext()
     context?.setFillColor(color.cgColor)
