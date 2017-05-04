@@ -126,12 +126,12 @@ extension Extra where Base: UIView {
     self.base.layer.mask = gradient
   }
   
-  /// Apply a rounded mask to the current view
+  /// Set a rounded style to the layer's mask of the current view
   ///
   /// - Parameters:
   ///   - corners: corners target
   ///   - radius: radius to apply for corners
-  public func roundCorners(_ corners: UIRectCorner, radius: CGSize) {
+  public func setRoundedMask(corners: UIRectCorner, radius: CGSize) {
     let maskPath = UIBezierPath(roundedRect: self.base.bounds, byRoundingCorners: corners, cornerRadii: radius)
     let maskLayer = CAShapeLayer()
     maskLayer.frame = self.base.bounds
