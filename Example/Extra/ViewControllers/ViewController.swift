@@ -3,7 +3,7 @@
 //  Extra
 //
 //  Created by Jean-Charles SORIN on 11/07/2016.
-//  Copyright (c) 2016 Jean-Charles SORIN. All rights reserved.
+//  Copyright (c) 2016 Smart&Soft. All rights reserved.
 //
 
 import UIKit

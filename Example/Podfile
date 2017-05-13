@@ -1,14 +1,15 @@
 use_frameworks!
+platform :ios, '9.0'
 
 target 'Extra_Example' do
   pod 'Extra', :path => '../'
-  
+
   pod 'SwiftGen', '~> 4.0.1'
-  pod 'RxCocoa', '~> 3.0.1'
+  pod 'RxCocoa', '~> 3.4.1'
+  pod 'SwiftLint'
 
   target 'Extra_Tests' do
     inherit! :search_paths
 
-#pod 'FBSnapshotTestCase'
   end
 end

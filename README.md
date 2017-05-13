@@ -1,11 +1,13 @@
-# Extra 👌🏼
+![](./Images/logo_Extra.png)
 
-A Swift library with usefull extensions for iOS projects.
+# Extra 👌🏼
 
 [![CI Status](http://img.shields.io/travis/smartnsoft/Extra.svg?style=flat)](https://travis-ci.org/smartnsoft/Extra)
 [![Version](https://img.shields.io/cocoapods/v/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
+[![License](https://img.shields.io/cocoapods/l/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
+[![Platform](https://img.shields.io/cocoapods/p/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
 
-![](./Images/logo_Extra.png)
+A Swift 3 library with usefull and lightfull extensions for your Cocoa Touch projects.
 
 ## Example
 
@@ -18,21 +20,28 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-Extra **will be (officially)** available through [CocoaPods](http://cocoapods.org). To install
+Extra is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod "Extra"
+
+# or via subspec :
+
+pod "Extra/UIKit"
+pod "Extra/Foundation"
+pod "Extra/Realm"
 ```
+
+## Usage
+
+**Use the `ex` variable on your current type to access to the Extra methods :**
+
+`UIApplication.ex.hideActivityIndicator()`
 
 ## Quick focus on available extensions
 
 ### UIKit extensions 🎨
-
-**Use the `ex` variable to access to the Extra methods :**
-
-`UIApplication.ex.hideActivityIndicator()`
-
 
 ####  `UIApplication`
 -  `UIActivityIndicator` accessbility : `hideActivityIndicator()` / `showActivityIndicator()`

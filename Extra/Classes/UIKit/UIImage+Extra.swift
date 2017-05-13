@@ -69,7 +69,7 @@ extension Extra where Base: UIImage {
   /// - returns: Roated original image
   public func imageRotatedByDegrees(degrees: CGFloat) -> UIImage? {
     
-    let radians = degrees * CGFloat(M_PI / 180)
+    let radians = degrees * CGFloat(Double.pi / 180)
     
     let rotatedViewBox = UIView(frame: CGRect(origin: CGPoint.zero, size: self.base.size))
     let transform = CGAffineTransform(rotationAngle: radians)
