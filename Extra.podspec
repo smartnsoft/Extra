@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Extra'
   s.version          = '0.5.0'
-  s.summary          = 'Usefull and lightfull extensions in Swift 3 for your Cocoa Touch projects.'
+  s.summary          = 'Swift 3 library with usefull and lightfull extensions for your Cocoa Touch projects.'
 
   s.homepage         = 'https://github.com/smartnsoft/Extra'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
