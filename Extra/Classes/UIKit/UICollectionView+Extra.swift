@@ -11,7 +11,7 @@ import Foundation
 extension Extra where Base: UICollectionView {
   
   /// Check the index path pointer by the center point
-  /// Usefull when you want to constently check the user scrolling and change a page indicator
+  /// Useful when you want to constently check the user scrolling and change a page indicator
   ///
   /// - returns: founded indexPath
   public func currentIndexPathForCenter() -> IndexPath? {

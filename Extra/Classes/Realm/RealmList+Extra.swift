@@ -11,7 +11,7 @@ import RealmSwift
 
 public extension RealmSwift.List {
   
-  /// Return lsit of object as a sequence
+  /// Return list of objects as a sequence
   /// Temporary name
   /// - Returns: [Object]
   public func ex_toArray() -> [T] {

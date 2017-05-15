@@ -11,7 +11,7 @@ import Foundation
 extension Extra where Base: UIImage {
   
   /// Creates an UIImage from and UIColor
-  /// This is usefull for your UIButton to set filled background color for states
+  /// This is useful for your UIButton to set filled background color for states
   ///
   /// - parameter color: Based color for image generation
   /// - parameter size: Based size for image generation
@@ -131,7 +131,7 @@ extension Extra where Base: UIImage {
     return newImage
   }
   
-  /// Simple reisze of your image based to it center
+  /// Simple resize of your image based to it center
   ///
   /// - returns:
   public func resizableImageByCenter() -> UIImage {
