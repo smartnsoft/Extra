@@ -51,19 +51,21 @@ extension String {
   public func firstCapitalized() -> String {
     
     if self.isEmpty { return self }
-    var result = self
-    result = result.substring(to: result.startIndex).localizedCapitalized
-    if self.characters.count > 1 {
-      result += result.substring(from: result.index(after: result.startIndex))
-    }
     
-    return result
+    return String(characters.prefix(1)).uppercased() + String(characters.dropFirst())
   }
   
   /// Check if the string matches to the passed regex
   public func matchesRegex(regex: String) -> Bool {
     let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
     return predicate.evaluate(with: self)
+  }
+  
+  /// Base-64 encoded String from a raw String
+  ///
+  /// - Returns: encoded string
+  func base64() -> String? {
+    return self.data(using: String.Encoding.utf8)?.base64EncodedString()
   }
   
 }

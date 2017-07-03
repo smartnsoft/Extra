@@ -140,4 +140,64 @@ extension Extra where Base: UIView {
     self.base.layer.mask = maskLayer
   }
   
+  /// Set a dashed style to the layer's mask around the current view
+  ///
+  /// - Parameters:
+  ///   - color: color of the dashed traits
+  ///   - thickness: thickness of the dashed traits
+  public func addDashedBorder(color: CGColor = UIColor.black.cgColor, thickness: CGFloat = 2) {
+    
+    let shapeLayer: CAShapeLayer = CAShapeLayer()
+    let frameSize = self.base.frame.size
+    let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
+    
+    shapeLayer.bounds = shapeRect
+    shapeLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
+    shapeLayer.fillColor = UIColor.clear.cgColor
+    shapeLayer.strokeColor = color
+    shapeLayer.lineWidth = thickness
+    shapeLayer.lineJoin = kCALineJoinRound
+    shapeLayer.lineDashPattern = [6, 3]
+    shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
+    
+    self.base.layer.addSublayer(shapeLayer)
+  }
+  
+  /// Set a shadow to the current view on left, right and bottom edges
+  public func addShadowBorder(color: UIColor = .black, size: CGFloat = 3) {
+    self.base.layer.masksToBounds = false
+    self.base.layer.shadowColor = color.cgColor
+    self.base.layer.shadowOpacity = 0.2
+    self.base.layer.shadowOffset = .zero
+    self.base.layer.shadowRadius = 1
+    
+    let shadowSize: CGFloat = size
+    
+    let rect = CGRect(x: -shadowSize / 2,
+                      y: 0,
+                      width: self.base.frame.width + shadowSize,
+                      height: self.base.frame.height + shadowSize / 2)
+    self.base.layer.shadowPath = UIBezierPath(rect: rect).cgPath
+  }
+  
+  /// Add a bottom divider line to the current view
+  ///
+  /// - Parameters:
+  ///   - color: divider color
+  ///   - alpha: divider alpha
+  ///   - widthMultiplier: divider width by report to its parent view
+  public func addBottomDivider(color: UIColor = .black, alpha: CGFloat = 0.3, thickness: CGFloat = 1, widthMultiplier: CGFloat = 0.85) {
+    let divider = UIView()
+    divider.translatesAutoresizingMaskIntoConstraints = false
+    divider.backgroundColor = color
+    divider.alpha = alpha
+    self.base.addSubview(divider)
+
+    [ divider.widthAnchor.constraint(equalTo: self.base.widthAnchor, multiplier: widthMultiplier),
+      divider.heightAnchor.constraint(equalToConstant: thickness),
+      divider.centerXAnchor.constraint(equalTo: self.base.centerXAnchor),
+      divider.bottomAnchor.constraint(equalTo: self.base.bottomAnchor)
+      ].forEach { $0.isActive = true }
+  }
+  
 }
