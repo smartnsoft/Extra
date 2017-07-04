@@ -14,16 +14,26 @@ class Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testEmail() {
+      let sampleStrings = ["", "@", ".cd", "a@.cd", "@b.cd", "a", "a@", "a@b", "a@b.", "b.cd", "a@b.c"]
+      sampleStrings.forEach { (string) in
+        let result = string.isValidEmail()
+        debugPrint("\(result)")
+        XCTAssert(result == false, "\(string) should not be a valid email")
+      }
     }
+  
+  func testCapitalized() {
+    let sampleString = "lowercased text"
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
-        }
+    let result = sampleString.firstCapitalized()
+    let components = result.components(separatedBy: " ")
+    guard let first = components.first, let last = components.last else {
+      assertionFailure("text parts not found")
+      return
     }
+    assert(first == "Lowercased" && last == "text", "firstCapitalized() returned: \(result) on: \(sampleString)")
+  }
+
     
 }

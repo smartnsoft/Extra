@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tQT-L0-7Xy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tQT-L0-7Xy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Kit View Controller-->
         <scene sceneID="jtC-Xh-V3d">
             <objects>
-                <viewController storyboardIdentifier="UIKitExamples" id="tQT-L0-7Xy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UIKitExamples" id="tQT-L0-7Xy" customClass="UIKitViewController" customModule="Extra_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mzb-xz-VPS"/>
                         <viewControllerLayoutGuide type="bottom" id="iLo-dZ-weF"/>
@@ -19,12 +21,51 @@
                     <view key="view" contentMode="scaleToFill" id="K0f-Ur-zOR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vig-d8-nej">
+                                <rect key="frame" x="0.0" y="20" width="375" height="267"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AxB-zb-Gbs">
+                                        <rect key="frame" x="67" y="73" width="240" height="120"/>
+                                        <color key="backgroundColor" red="1" green="0.14954377690000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="3NX-fX-Vne"/>
+                                            <constraint firstAttribute="width" secondItem="AxB-zb-Gbs" secondAttribute="height" multiplier="2:1" id="9QO-1I-PaO"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="AxB-zb-Gbs" firstAttribute="centerX" secondItem="vig-d8-nej" secondAttribute="centerX" id="9TQ-aT-GCo"/>
+                                    <constraint firstItem="AxB-zb-Gbs" firstAttribute="centerY" secondItem="vig-d8-nej" secondAttribute="centerY" id="ifK-qH-kcz"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HRa-a9-7h3">
+                                <rect key="frame" x="0.0" y="287" width="375" height="380"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vig-d8-nej" firstAttribute="height" secondItem="K0f-Ur-zOR" secondAttribute="height" multiplier="0.4" id="0HW-XJ-9pZ"/>
+                            <constraint firstAttribute="trailing" secondItem="HRa-a9-7h3" secondAttribute="trailing" id="7A3-ZT-lhq"/>
+                            <constraint firstItem="iLo-dZ-weF" firstAttribute="top" secondItem="HRa-a9-7h3" secondAttribute="bottom" id="P92-zU-Ep7"/>
+                            <constraint firstItem="vig-d8-nej" firstAttribute="top" secondItem="Mzb-xz-VPS" secondAttribute="bottom" id="eIK-Z5-VSr"/>
+                            <constraint firstItem="HRa-a9-7h3" firstAttribute="top" secondItem="vig-d8-nej" secondAttribute="bottom" id="g9W-gD-uL7"/>
+                            <constraint firstItem="vig-d8-nej" firstAttribute="leading" secondItem="K0f-Ur-zOR" secondAttribute="leading" id="gdr-bX-sRW"/>
+                            <constraint firstItem="HRa-a9-7h3" firstAttribute="leading" secondItem="K0f-Ur-zOR" secondAttribute="leading" id="gtL-fE-gaG"/>
+                            <constraint firstAttribute="trailing" secondItem="vig-d8-nej" secondAttribute="trailing" id="udo-nG-x6g"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ibExampleView" destination="AxB-zb-Gbs" id="aly-ca-cPO"/>
+                        <outlet property="ibTableView" destination="HRa-a9-7h3" id="6zT-1L-c2s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UmB-Bz-Diu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="140"/>
+            <point key="canvasLocation" x="156" y="164.16791604197903"/>
         </scene>
     </scenes>
 </document>

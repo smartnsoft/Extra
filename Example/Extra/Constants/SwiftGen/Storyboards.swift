@@ -82,9 +82,20 @@ struct StoryboardScene {
   enum UIKitExamples: String, StoryboardSceneType {
     static let storyboardName = "UIKitExamples"
 
+    static func initialViewController() -> UIKitViewController {
+      guard let vc = storyboard().instantiateInitialViewController() as? UIKitViewController else {
+        fatalError("Failed to instantiate initialViewController for \(self.storyboardName)")
+      }
+      return vc
+    }
+
     case uiKitExamplesScene = "UIKitExamples"
-    static func instantiateUiKitExamples() -> UIViewController {
-      return StoryboardScene.UIKitExamples.uiKitExamplesScene.viewController()
+    static func instantiateUiKitExamples() -> UIKitViewController {
+      guard let vc = StoryboardScene.UIKitExamples.uiKitExamplesScene.viewController() as? UIKitViewController
+      else {
+        fatalError("ViewController 'UIKitExamples' is not of the expected class UIKitViewController.")
+      }
+      return vc
     }
   }
 }

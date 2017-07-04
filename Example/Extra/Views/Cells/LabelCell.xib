@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" rowHeight="134" id="E7M-p4-q3o" customClass="LabelCell" customModule="Extra_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="134"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E7M-p4-q3o" id="jQF-rK-rgM">
+                <rect key="frame" x="0.0" y="0.0" width="364" height="133.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvS-H8-64d">
+                        <rect key="frame" x="28" y="16" width="308" height="101.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="WvS-H8-64d" secondAttribute="bottom" constant="8" id="ESF-79-lJf"/>
+                    <constraint firstItem="WvS-H8-64d" firstAttribute="leading" secondItem="jQF-rK-rgM" secondAttribute="leadingMargin" constant="20" id="SbY-bZ-ihk"/>
+                    <constraint firstItem="WvS-H8-64d" firstAttribute="top" secondItem="jQF-rK-rgM" secondAttribute="topMargin" constant="8" id="fUG-eW-IVe"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="WvS-H8-64d" secondAttribute="trailing" constant="20" id="nIy-oy-Zmu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ibLabel" destination="WvS-H8-64d" id="Qis-Gl-lFB"/>
+            </connections>
+            <point key="canvasLocation" x="8" y="-36"/>
+        </tableViewCell>
+    </objects>
+</document>
