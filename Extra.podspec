@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Extra'
-  s.version          = '0.5.1'
+  s.version          = '0.5.2'
   s.summary          = 'Swift 3 library with usefull and lightfull extensions for your Cocoa Touch projects.'
 
   s.homepage         = 'https://github.com/smartnsoft/Extra'
@@ -11,8 +11,12 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
 
   s.ios.frameworks        = 'UIKit', 'QuartzCore', 'Foundation'
+  
+  s.default_subspec = 'Core'
 
-  s.source_files = 'Extra/Classes/Extra/**/*.{swift}'
+  s.subspec 'Core' do |sp|
+    sp.source_files = 'Extra/Classes/Extra/**/*.{swift}'
+  end
 
   s.subspec 'UIKit' do |sp|
     sp.source_files = 'Extra/Classes/Extra/**/*.{swift}','Extra/Classes/UIKit/**/*.{swift}'
