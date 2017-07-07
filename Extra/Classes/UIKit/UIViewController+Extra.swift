@@ -74,30 +74,31 @@ extension Extra where Base: UIViewController {
     from originController: UIViewController?,
     to destinationController: UIViewController,
     in viewContainer: UIView,
-    duration: TimeInterval = 0,
+    duration: TimeInterval = 3,
     transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve,
     completion: ((Bool) -> Void)? = nil) {
     
-    originController?.willMove(toParentViewController: nil)
-    self.base.addChildViewController(destinationController)
-    
-    if let childView = destinationController.view {
-      viewContainer.ex.addSubview(childView, insets: .zero)
-    }
+    destinationController.view.bounds = viewContainer.bounds
     
     if let originController = originController {
+      originController.willMove(toParentViewController: nil)
+      self.base.addChildViewController(destinationController)
       self.base.transition(from: originController,
                            to: destinationController,
                            duration: duration,
                            options: transitionOptions,
                            animations: nil,
                            completion: { completed in
+                            viewContainer.ex.setSubviewConstraints(destinationController.view)
                             originController.removeFromParentViewController()
                             destinationController.didMove(toParentViewController: self.base)
                             completion?(completed)
                             
       })
     } else {
+      self.base.addChildViewController(destinationController)
+      viewContainer.ex.addSubview(destinationController.view, insets: .zero)
+      
       destinationController.view.alpha = 0
       UIView.animate(withDuration: duration, animations: {
         destinationController.view.alpha = 1

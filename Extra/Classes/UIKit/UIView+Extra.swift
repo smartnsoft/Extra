@@ -66,10 +66,17 @@ extension Extra where Base: UIView {
   ///
   /// - parameter subview: Child view
   /// - parameter insets:  Insets explainded between the child and your current view
-  public func addSubview(_ subview: UIView, insets: UIEdgeInsets) {
-    
-    subview.translatesAutoresizingMaskIntoConstraints = false
+  public func addSubview(_ subview: UIView, insets: UIEdgeInsets = .zero) {
     self.base.addSubview(subview)
+    self.setSubviewConstraints(subview)
+  }
+  
+  /// Set constraints to the added subview .
+  ///
+  /// - parameter subview: Child view
+  /// - parameter insets:  Insets explainded between the child and your current view
+  public func setSubviewConstraints(_ subview: UIView, insets: UIEdgeInsets = .zero) {
+    subview.translatesAutoresizingMaskIntoConstraints = false
     
     let hConstraint = "H:|-\(insets.left)-[subview]-\(insets.right)-|"
     let vConstraint = "V:|-\(insets.top)-[subview]-\(insets.bottom)-|"

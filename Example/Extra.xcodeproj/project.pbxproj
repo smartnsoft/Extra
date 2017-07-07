@@ -22,6 +22,7 @@
 		5C208FF11F0A6C14005421C9 /* UIKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C208FF01F0A6C14005421C9 /* UIKitViewController.swift */; };
 		5C208FF61F0A6F60005421C9 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C208FF51F0A6F60005421C9 /* LabelCell.swift */; };
 		5C208FF81F0A73BE005421C9 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C208FF71F0A73BE005421C9 /* LabelCell.xib */; };
+		5CB487821F0E48190042EA10 /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB487811F0E48190042EA10 /* ColorViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -64,6 +65,7 @@
 		5C208FF01F0A6C14005421C9 /* UIKitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitViewController.swift; sourceTree = "<group>"; };
 		5C208FF51F0A6F60005421C9 /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		5C208FF71F0A73BE005421C9 /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		5CB487811F0E48190042EA10 /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Extra_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Extra_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				446D39CF1DF88B7B00C5CA95 /* UIKitExamples.storyboard */,
 				5C208FF01F0A6C14005421C9 /* UIKitViewController.swift */,
+				5CB487811F0E48190042EA10 /* ColorViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 			files = (
 				446D39D51DF88E6C00C5CA95 /* Storyboards.swift in Sources */,
 				443485B41DFAC2F400FA2E1E /* FoundationViewController.swift in Sources */,
+				5CB487821F0E48190042EA10 /* ColorViewController.swift in Sources */,
 				446D39C51DF88A8A00C5CA95 /* ViewController.swift in Sources */,
 				446D39C71DF88A9E00C5CA95 /* ExtraCategory.swift in Sources */,
 				44803C211DD0C0D500DE0456 /* AppDelegate.swift in Sources */,
@@ -820,6 +824,7 @@
 				5C208FED1F0A3C88005421C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Extra" */ = {
 			isa = XCConfigurationList;

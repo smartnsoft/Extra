@@ -14,6 +14,7 @@ enum ButtonKind: Int {
   case dashedBorder
   case shadowBorder
   case bottomDivider
+  case switchChild
   
   var text: String {
     var retValue: String
@@ -24,11 +25,13 @@ enum ButtonKind: Int {
       retValue = "Toggle a shadow border"
     case .bottomDivider:
       retValue = "Toggle a bottom divider"
+    case .switchChild:
+      retValue = "Switch child"
     }
     return retValue
   }
   
-  static var count: Int { return ButtonKind.bottomDivider.hashValue + 1 }
+  static var count: Int { return ButtonKind.switchChild.hashValue + 1 }
 }
 
 final class UIKitViewController: UIViewController {
@@ -52,22 +55,34 @@ extension UIKitViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let data = ButtonKind(rawValue: indexPath.row) else {
-        return
+      return
     }
-    self.didTapButton(with: data)
+    didTapButton(with: data)
   }
   
   func didTapButton(with kind: ButtonKind) {
-    let extraView = Extra<UIView>(self.ibExampleView)
-    extraView.base.layer.sublayers = nil
     switch kind {
     case .dashedBorder:
-      extraView.addDashedBorder()
+      resetView()
+      self.ibExampleView.ex.addDashedBorder()
     case .shadowBorder:
-      extraView.addShadowBorder()
+      resetView()
+      self.ibExampleView.ex.addShadowBorder()
     case .bottomDivider:
-      extraView.addBottomDivider(color: .white, alpha: 0.5, thickness: 10, widthMultiplier: 0.9)
-    }
+      resetView()
+      self.ibExampleView.ex.addBottomDivider(color: .white, alpha: 0.5, thickness: 10, widthMultiplier: 0.9)
+    case .switchChild:
+        let currentVc = self.childViewControllers.last
+        let newVc = ColorViewController()
+        newVc.color = currentVc?.view.backgroundColor == .orange ? .blue : .orange
+        self.ex.switchChilds(from: currentVc, to: newVc, in: self.ibExampleView)
+      }
+  }
+  
+  func resetView() {
+    let layer = self.ibExampleView.layer
+    layer.sublayers = nil
+    layer.shadowPath = nil
   }
   
 }

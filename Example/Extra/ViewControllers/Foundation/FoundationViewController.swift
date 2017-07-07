@@ -57,8 +57,5 @@ class FoundationViewController: UIViewController {
     self.emojis.shuffle()
     self.updateSuffleLabel()
   }
-//  @IBAction func didTouchSuffleButton(_ sender: Any) {
-//    
-//  }
   
 }
