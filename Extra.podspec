@@ -28,6 +28,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Realm' do |sp|
     sp.source_files = 'Extra/Classes/Extra/**/*.{swift}','Extra/Classes/Realm/**/*.{swift}'
-    sp.dependency 'RealmSwift', '~> 2.7'
+    sp.dependency 'RealmSwift', '~> 2.8'
   end
 end
