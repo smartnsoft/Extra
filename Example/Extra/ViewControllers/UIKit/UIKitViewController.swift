@@ -40,6 +40,7 @@ final class UIKitViewController: UIViewController {
   @IBOutlet weak var ibExampleView: UIView!
   @IBOutlet weak var ibTableView: UITableView!
   
+  var switchLocked = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -58,6 +59,7 @@ extension UIKitViewController: UITableViewDelegate {
       return
     }
     didTapButton(with: data)
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
   func didTapButton(with kind: ButtonKind) {
@@ -72,11 +74,18 @@ extension UIKitViewController: UITableViewDelegate {
       resetView()
       self.ibExampleView.ex.addBottomDivider(color: .white, alpha: 0.5, thickness: 10, widthMultiplier: 0.9)
     case .switchChild:
+      if !switchLocked {
         let currentVc = self.childViewControllers.last
         let newVc = ColorViewController()
         newVc.color = currentVc?.view.backgroundColor == .orange ? .blue : .orange
         self.ex.switchChilds(from: currentVc, to: newVc, in: self.ibExampleView)
+        self.ex.switchChilds(from: currentVc, to: newVc, in: self.ibExampleView, duration: 3, completion: { (finished) in
+          if finished {
+            self.switchLocked = false
+          }
+        })
       }
+    }
   }
   
   func resetView() {
