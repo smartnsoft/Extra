@@ -1,10 +1,24 @@
+// The MIT License (MIT)
 //
-//  UIView+Extra.swift
-//  Pods
+// Copyright (c) 2017 Smart&Soft
 //
-//  Created by Jean-Charles SORIN on 07/11/2016.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 /// Gradient directon to explain vertical/horizontal Y axis for a gradient, and X axis direction
 public enum ExtraGradientDirection {
@@ -66,10 +80,21 @@ extension Extra where Base: UIView {
   ///
   /// - parameter subview: Child view
   /// - parameter insets:  Insets explainded between the child and your current view
-  public func addSubview(_ subview: UIView, insets: UIEdgeInsets) {
-    
-    subview.translatesAutoresizingMaskIntoConstraints = false
+  public func addSubview(_ subview: UIView, insets: UIEdgeInsets = .zero) {
     self.base.addSubview(subview)
+    self.setSubviewConstraints(subview)
+  }
+  
+  /// Set constraints to the added subview .
+  ///
+  /// - parameter subview: Child view
+  /// - parameter insets:  Insets explainded between the child and your current view
+  public func setSubviewConstraints(_ subview: UIView, insets: UIEdgeInsets = .zero) {
+    
+    guard subview.superview != nil else {
+      return
+    }
+    subview.translatesAutoresizingMaskIntoConstraints = false
     
     let hConstraint = "H:|-\(insets.left)-[subview]-\(insets.right)-|"
     let vConstraint = "V:|-\(insets.top)-[subview]-\(insets.bottom)-|"

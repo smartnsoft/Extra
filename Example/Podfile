@@ -2,7 +2,9 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'Extra_Example' do
-  pod 'Extra', :path => '../'
+  pod 'Extra/Realm', :path => '../'
+  pod 'Extra/UIKit', :path => '../'
+  pod 'Extra/Foundation', :path => '../'
 
   pod 'SwiftGen', '~> 4.0.1'
   pod 'RxCocoa', '~> 3.4.1'

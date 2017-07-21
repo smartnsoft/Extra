@@ -89,11 +89,20 @@ struct StoryboardScene {
       return vc
     }
 
-    case uiKitExamplesScene = "UIKitExamples"
-    static func instantiateUiKitExamples() -> UIKitViewController {
-      guard let vc = StoryboardScene.UIKitExamples.uiKitExamplesScene.viewController() as? UIKitViewController
+    case colorViewControllerScene = "ColorViewController"
+    static func instantiateColorViewController() -> ColorViewController {
+      guard let vc = StoryboardScene.UIKitExamples.colorViewControllerScene.viewController() as? ColorViewController
       else {
-        fatalError("ViewController 'UIKitExamples' is not of the expected class UIKitViewController.")
+        fatalError("ViewController 'ColorViewController' is not of the expected class ColorViewController.")
+      }
+      return vc
+    }
+
+    case uiKitViewControllerScene = "UIKitViewController"
+    static func instantiateUiKitViewController() -> UIKitViewController {
+      guard let vc = StoryboardScene.UIKitExamples.uiKitViewControllerScene.viewController() as? UIKitViewController
+      else {
+        fatalError("ViewController 'UIKitViewController' is not of the expected class UIKitViewController.")
       }
       return vc
     }

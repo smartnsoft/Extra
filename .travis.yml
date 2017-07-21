@@ -3,12 +3,12 @@
 # * https://github.com/supermarin/xcpretty#usage
 
 language: objective-c
-osx_image: xcode8.1
+osx_image: xcode8.3
 xcode_project: Example/Extra.xcodeproj
 before_script:
 #If one of this failed we have error and all process is stopped
 - cd Example
-- pod install --repo-update
+- pod install --repo-update --verbose
 
 script:
 # It's only one command who count for valid or not build session

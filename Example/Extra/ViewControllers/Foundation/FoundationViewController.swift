@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Extra
 
 class FoundationViewController: UIViewController {
   
@@ -57,8 +58,5 @@ class FoundationViewController: UIViewController {
     self.emojis.shuffle()
     self.updateSuffleLabel()
   }
-//  @IBAction func didTouchSuffleButton(_ sender: Any) {
-//    
-//  }
   
 }
