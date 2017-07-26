@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 extension Extra where Base: UIApplication {
-  
+  #if(iOS)
   public static func showActivityIndicator() {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
   }
@@ -29,5 +29,5 @@ extension Extra where Base: UIApplication {
   public static func hideActivityIndicator() {
     UIApplication.shared.isNetworkActivityIndicatorVisible = false
   }
-  
+  #endif
 }
