@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 extension Extra where Base: UIApplication {
-  #if(iOS)
+  #if os(iOS)
   public static func showActivityIndicator() {
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
   }
