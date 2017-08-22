@@ -88,7 +88,7 @@ extension Extra where Base: UIViewController {
     from originController: UIViewController?,
     to destinationController: UIViewController,
     in viewContainer: UIView,
-    duration: TimeInterval = 3,
+    duration: TimeInterval = 0.3,
     transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve,
     completion: ((Bool) -> Void)? = nil) {
     

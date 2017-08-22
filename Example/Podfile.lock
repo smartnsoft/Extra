@@ -1,13 +1,16 @@
 PODS:
-  - Extra/Foundation (0.5.2)
-  - Extra/Realm (0.5.2):
+  - Extra (0.6.0):
+    - Extra/Foundation (= 0.6.0)
+    - Extra/UIKit (= 0.6.0)
+  - Extra/Foundation (0.6.0)
+  - Extra/Realm (0.6.0):
     - RealmSwift (~> 2.8)
-  - Extra/UIKit (0.5.2)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
-  - RealmSwift (2.8.3):
-    - Realm (= 2.8.3)
+  - Extra/UIKit (0.6.0)
+  - Realm (2.10.0):
+    - Realm/Headers (= 2.10.0)
+  - Realm/Headers (2.10.0)
+  - RealmSwift (2.10.0):
+    - Realm (= 2.10.0)
   - RxCocoa (3.4.1):
     - RxSwift (~> 3.4)
   - RxSwift (3.5.0)
@@ -15,9 +18,8 @@ PODS:
   - SwiftLint (0.20.1)
 
 DEPENDENCIES:
-  - Extra/Foundation (from `../`)
+  - Extra (from `../`)
   - Extra/Realm (from `../`)
-  - Extra/UIKit (from `../`)
   - RxCocoa (~> 3.4.1)
   - SwiftGen (~> 4.0.1)
   - SwiftLint
@@ -27,14 +29,14 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extra: c8ffb67bbe1f8e99bc8801c831ad005eb2e7f783
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
-  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+  Extra: 8de8602637173951173cdd667609f68eaaa21716
+  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
+  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
   SwiftGen: 04bbc1fb69add82a7a471380dfbdd00b45912d17
   SwiftLint: f60095dc173a3f3ec505bb34f5229c3dfd779a54
 
-PODFILE CHECKSUM: 7fc8ab708f2cdd8c15792215343f716b13a5376b
+PODFILE CHECKSUM: 1514afe85d47ba28bae751cbea3a1598c7853742
 
 COCOAPODS: 1.2.1
