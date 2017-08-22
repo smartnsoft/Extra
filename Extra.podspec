@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   s.default_subspec = 'UIKit', 'Foundation'
 
   s.subspec 'UIKit' do |sp|
-    sp.source_files = 'Extra/Classes/UIKit/**/*.{swift}'
+    sp.source_files = 'Extra/Classes/Extra/**/*.{swift}', 'Extra/Classes/UIKit/**/*.{swift}'
   end
 
   s.subspec 'Foundation' do |sp|
-    sp.source_files = 'Extra/Classes/Foundation/**/*.{swift}'
+    sp.source_files = 'Extra/Classes/Extra/**/*.{swift}', 'Extra/Classes/Foundation/**/*.{swift}'
   end
 
   s.subspec 'Realm' do |sp|
