@@ -69,11 +69,22 @@ extension Extra where Base: UIViewController {
     
     if let childView = childController.view {
       self.base.addChildViewController(childController)
+      childView.frame = container.bounds
       container.ex.addSubview(childView, insets: insets)
+      childController.didMove(toParentViewController: self.base)
+      
     } else {
       fatalError("Your view controller \(childController) does not contain any view")
     }
-    
+  }
+  
+  /// Remove the desired childViewController properly from its parent
+  ///
+  /// - Parameter childViewController: child controller to remove
+  public func removeChildViewController(_ childViewController: UIViewController) {
+    childViewController.willMove(toParentViewController: nil)
+    childViewController.view.removeFromSuperview()
+    childViewController.removeFromParentViewController()
   }
   
   /// Switch between child view controllers
@@ -92,7 +103,7 @@ extension Extra where Base: UIViewController {
     transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve,
     completion: ((Bool) -> Void)? = nil) {
     
-    destinationController.view.bounds = viewContainer.bounds
+    destinationController.view.frame = viewContainer.bounds
     
     if let originController = originController {
       originController.willMove(toParentViewController: nil)

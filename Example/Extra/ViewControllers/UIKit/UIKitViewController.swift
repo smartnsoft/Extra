@@ -48,6 +48,10 @@ final class UIKitViewController: UIViewController {
     self.ibTableView.delegate = self
     let nib = UINib(nibName: LabelCell.reuseIdentifier, bundle: nil)
     self.ibTableView.register(nib, forCellReuseIdentifier: LabelCell.reuseIdentifier)
+    
+    let newVc = ColorViewController()
+    newVc.color = self.childViewControllers.last?.view.backgroundColor == .orange ? .blue : .orange
+    self.ex.addChildViewController(newVc, in: self.ibExampleView, insets: .zero)
   }
   
 }
