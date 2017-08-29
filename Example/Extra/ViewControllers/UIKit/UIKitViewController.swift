@@ -51,7 +51,8 @@ final class UIKitViewController: UIViewController {
     
     let newVc = ColorViewController()
     newVc.color = self.childViewControllers.last?.view.backgroundColor == .orange ? .blue : .orange
-    self.ex.addChildViewController(newVc, in: self.ibExampleView, insets: .zero)
+    //self.ex.addChildViewController(newVc, in: self.ibExampleView, insets: .zero)
+    self.ex.switchChilds(from: nil, to: newVc, in: self.ibExampleView, duration: 3)
   }
   
 }
