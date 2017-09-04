@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Extra'
-  s.version          = '0.6.0'
+  s.version          = '0.6.1'
   s.summary          = 'Swift 3 library with usefull and lightfull extensions for your Cocoa Touch projects.'
 
   s.homepage         = 'https://github.com/smartnsoft/Extra'
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.ios.frameworks        = 'UIKit', 'QuartzCore', 'Foundation'
-  
+
   s.default_subspec = 'UIKit', 'Foundation'
 
   s.subspec 'UIKit' do |sp|
