@@ -69,11 +69,22 @@ extension Extra where Base: UIViewController {
     
     if let childView = childController.view {
       self.base.addChildViewController(childController)
+      childView.frame = container.bounds
       container.ex.addSubview(childView, insets: insets)
+      childController.didMove(toParentViewController: self.base)
+      
     } else {
       fatalError("Your view controller \(childController) does not contain any view")
     }
-    
+  }
+  
+  /// Remove the desired childViewController properly from its parent
+  ///
+  /// - Parameter childViewController: child controller to remove
+  public func removeChildViewController(_ childViewController: UIViewController) {
+    childViewController.willMove(toParentViewController: nil)
+    childViewController.view.removeFromSuperview()
+    childViewController.removeFromParentViewController()
   }
   
   /// Switch between child view controllers
@@ -90,9 +101,13 @@ extension Extra where Base: UIViewController {
     in viewContainer: UIView,
     duration: TimeInterval = 0.3,
     transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve,
+    insets: UIEdgeInsets = .zero,
     completion: ((Bool) -> Void)? = nil) {
     
-    destinationController.view.bounds = viewContainer.bounds
+    guard destinationController != originController else {
+      return
+    }
+    destinationController.view.frame = viewContainer.bounds
     
     if let originController = originController {
       originController.willMove(toParentViewController: nil)
@@ -103,21 +118,18 @@ extension Extra where Base: UIViewController {
                            options: transitionOptions,
                            animations: nil,
                            completion: { completed in
-                            viewContainer.ex.setSubviewConstraints(destinationController.view)
                             originController.removeFromParentViewController()
                             destinationController.didMove(toParentViewController: self.base)
                             completion?(completed)
                             
       })
     } else {
-      self.base.addChildViewController(destinationController)
-      viewContainer.ex.addSubview(destinationController.view, insets: .zero)
-      
       destinationController.view.alpha = 0
+      self.addChildViewController(destinationController, in: viewContainer, insets: insets)
+      
       UIView.animate(withDuration: duration, animations: {
         destinationController.view.alpha = 1
       }, completion: { finished in
-        destinationController.didMove(toParentViewController: self.base)
         completion?(finished)
       })
     }
