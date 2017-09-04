@@ -101,8 +101,12 @@ extension Extra where Base: UIViewController {
     in viewContainer: UIView,
     duration: TimeInterval = 0.3,
     transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve,
+    insets: UIEdgeInsets = .zero,
     completion: ((Bool) -> Void)? = nil) {
     
+    guard destinationController != originController else {
+      return
+    }
     destinationController.view.frame = viewContainer.bounds
     
     if let originController = originController {
@@ -114,21 +118,18 @@ extension Extra where Base: UIViewController {
                            options: transitionOptions,
                            animations: nil,
                            completion: { completed in
-                            viewContainer.ex.setSubviewConstraints(destinationController.view)
                             originController.removeFromParentViewController()
                             destinationController.didMove(toParentViewController: self.base)
                             completion?(completed)
                             
       })
     } else {
-      self.base.addChildViewController(destinationController)
-      viewContainer.ex.addSubview(destinationController.view, insets: .zero)
-      
       destinationController.view.alpha = 0
+      self.addChildViewController(destinationController, in: viewContainer, insets: insets)
+      
       UIView.animate(withDuration: duration, animations: {
         destinationController.view.alpha = 1
       }, completion: { finished in
-        destinationController.didMove(toParentViewController: self.base)
         completion?(finished)
       })
     }

@@ -51,7 +51,8 @@ final class UIKitViewController: UIViewController {
     
     let newVc = ColorViewController()
     newVc.color = self.childViewControllers.last?.view.backgroundColor == .orange ? .blue : .orange
-    self.ex.addChildViewController(newVc, in: self.ibExampleView, insets: .zero)
+    //self.ex.addChildViewController(newVc, in: self.ibExampleView, insets: .zero)
+    self.ex.switchChilds(from: nil, to: newVc, in: self.ibExampleView, duration: 1)
   }
   
 }
@@ -82,11 +83,15 @@ extension UIKitViewController: UITableViewDelegate {
         let currentVc = self.childViewControllers.last
         let newVc = ColorViewController()
         newVc.color = currentVc?.view.backgroundColor == .orange ? .blue : .orange
-        self.ex.switchChilds(from: currentVc, to: newVc, in: self.ibExampleView)
-        self.ex.switchChilds(from: currentVc, to: newVc, in: self.ibExampleView, duration: 3, completion: { (finished) in
-          if finished {
-            self.switchLocked = false
-          }
+        self.ex.switchChilds(from: currentVc,
+                             to: newVc,
+                             in: self.ibExampleView,
+                             duration: 1,
+                             transitionOptions: .transitionFlipFromLeft,
+                             completion: { (finished) in
+                              if finished {
+                                self.switchLocked = false
+                              }
         })
       }
     }
