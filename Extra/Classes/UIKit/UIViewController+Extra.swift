@@ -116,7 +116,9 @@ extension Extra where Base: UIViewController {
                            to: destinationController,
                            duration: duration,
                            options: transitionOptions,
-                           animations: nil,
+                           animations: {
+                            viewContainer.ex.setSubviewConstraints(destinationController.view)
+      },
                            completion: { completed in
                             originController.removeFromParentViewController()
                             destinationController.didMove(toParentViewController: self.base)
