@@ -31,7 +31,7 @@ extension Extra where Base: UIColor {
   /// - returns: The filled color image
   public func toImage(size: CGSize = CGSize(width: 10, height: 10)) -> UIImage? {
     
-    let rect = CGRect(x:0, y:0, width: size.width, height: size.height)
+    let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     UIGraphicsBeginImageContextWithOptions(size, false, 0)
     self.base.setFill()
     UIRectFill(rect)

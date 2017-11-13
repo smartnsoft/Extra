@@ -36,6 +36,8 @@ extension Object: DetachableObject {
     let detached = type(of: self).init()
     for property in objectSchema.properties {
       guard let value = value(forKey: property.name) else { continue }
+      
+      //see also to adapt types https://github.com/realm/realm-cocoa/issues/5433#issuecomment-340138315
       if let detachable = value as? DetachableObject {
         detached.setValue(detachable.detached(), forKey: property.name)
       } else {
@@ -51,9 +53,18 @@ extension List: DetachableObject {
   
   public func detached() -> List<Element> {
     let result = List<Element>()
+    
     forEach {
-      result.append($0.detached())
+      if let detachable = $0 as? DetachableObject {
+        //swiftlint:disable force_cast
+        let detached = detachable.detached() as! Element
+        //swiftlint:enable force_cast
+        result.append(detached)
+      } else {
+        result.append($0)
+      }
     }
+    
     return result
   }
   

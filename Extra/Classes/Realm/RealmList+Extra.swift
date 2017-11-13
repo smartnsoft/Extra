@@ -28,7 +28,11 @@ public extension RealmSwift.List {
   /// Return list of objects as a sequence
   /// Temporary name
   /// - Returns: [Object]
-  public func ex_toArray() -> [T] {
-    return Array(self)
+  public func ex_toArray(detached: Bool = false) -> [Element] {
+    if !detached {
+      return Array(self)
+    } else {
+      return Array(self.detached())
+    }
   }
 }
