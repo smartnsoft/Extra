@@ -30,7 +30,7 @@ extension String {
   /// - parameter attributes: Your attributed string attributes
   ///
   /// - returns: computed height according to the string length
-  public func heightConstrained(to width: CGFloat, attributes: [String: Any]? = nil) -> CGFloat {
+  public func heightConstrained(to width: CGFloat, attributes: [NSAttributedStringKey: Any]? = nil) -> CGFloat {
     
     let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     
