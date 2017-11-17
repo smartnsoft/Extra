@@ -30,7 +30,7 @@ extension String {
   /// - parameter attributes: Your attributed string attributes
   ///
   /// - returns: computed height according to the string length
-  public func heightConstrained(to width: CGFloat, attributes: [String : Any]? = nil) -> CGFloat {
+  public func heightConstrained(to width: CGFloat, attributes: [NSAttributedStringKey: Any]? = nil) -> CGFloat {
     
     let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
     
@@ -55,7 +55,7 @@ extension String {
                                           options: .caseInsensitive)
       return regex.firstMatch(in: self,
                               options: NSRegularExpression.MatchingOptions(rawValue: 0),
-                              range: NSRange(location: 0, length: self.characters.count)) != nil
+                              range: NSRange(location: 0, length: self.count)) != nil
     } catch {
       return false
     }
@@ -66,7 +66,7 @@ extension String {
     
     if self.isEmpty { return self }
     
-    return String(characters.prefix(1)).uppercased() + String(characters.dropFirst())
+    return String(self.prefix(1)).uppercased() + String(self.dropFirst())
   }
   
   /// Check if the string matches to the passed regex

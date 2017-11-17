@@ -30,15 +30,26 @@ public extension Results {
   /// - parameter index: The desired index
   ///
   /// - returns: Your Realm result object at the correct index, nil if out of bound
-  public subscript (safe index: Int) -> T? {
+  public subscript (safe index: Int) -> Element? {
     return index < count && index >= 0 ? self[index] : nil
   }
   
   /// Return results as a sequence
   /// Temporary name
   /// - Returns: [Object]
-  public func ex_toArray() -> [T] {
-    return Array(self)
+  public func ex_toArray(detached: Bool = false) -> [Element] {
+    if !detached {
+      return Array(self)
+    } else {
+      let result = List<Element>()
+      
+      forEach {
+        result.append($0)
+      }
+      
+      return Array(result.detached())
+    }
+    
   }
   
 }
