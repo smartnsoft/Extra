@@ -53,16 +53,16 @@ extension Extra where Base: UIColor {
       return nil
     }
     var formatedHexa = hexaString
-    if !hexaString.characters.starts(with: ["#"]) {
+    if !hexaString.starts(with: ["#"]) {
       formatedHexa = "#\(hexaString)"
     }
     
-    guard formatedHexa.characters.count == 7 || formatedHexa.characters.count == 4 else {
+    guard formatedHexa.count == 7 || formatedHexa.count == 4 else {
       print("Unsupported string format:\(formatedHexa)")
       return nil
     }
     
-    if formatedHexa.characters.count == 4 {
+    if formatedHexa.count == 4 {
       
       let hexaString = formatedHexa as NSString
       formatedHexa = "#"
