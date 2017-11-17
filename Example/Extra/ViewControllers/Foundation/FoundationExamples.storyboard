@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uzc-i5-Gmz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uzc-i5-Gmz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +15,6 @@
         <scene sceneID="R4t-RI-eiP">
             <objects>
                 <viewController storyboardIdentifier="FoundationExamples" id="uzc-i5-Gmz" customClass="FoundationViewController" customModule="Extra_Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fDn-ql-wH6"/>
-                        <viewControllerLayoutGuide type="bottom" id="uhi-tG-JcU"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YLo-vP-9tK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +75,7 @@
                             <constraint firstItem="0NL-U4-Di3" firstAttribute="trailing" secondItem="YLo-vP-9tK" secondAttribute="trailingMargin" id="NS2-sj-VFe"/>
                             <constraint firstItem="sxj-Kv-hsT" firstAttribute="leading" secondItem="YLo-vP-9tK" secondAttribute="leadingMargin" id="RqQ-3H-tmc"/>
                             <constraint firstItem="b1a-2R-z9f" firstAttribute="leading" secondItem="YLo-vP-9tK" secondAttribute="leadingMargin" id="SE1-3c-IoX"/>
-                            <constraint firstItem="6NP-ET-cbF" firstAttribute="top" secondItem="fDn-ql-wH6" secondAttribute="bottom" constant="18" id="SIk-F2-Nel"/>
+                            <constraint firstItem="6NP-ET-cbF" firstAttribute="top" secondItem="sU4-jz-Spp" secondAttribute="top" constant="18" id="SIk-F2-Nel"/>
                             <constraint firstItem="6NP-ET-cbF" firstAttribute="width" secondItem="0NL-U4-Di3" secondAttribute="width" id="Xab-Li-ETx"/>
                             <constraint firstItem="sxj-Kv-hsT" firstAttribute="trailing" secondItem="YLo-vP-9tK" secondAttribute="trailingMargin" id="Yg7-Hg-l7V"/>
                             <constraint firstItem="AKm-3l-Qpn" firstAttribute="top" secondItem="6NP-ET-cbF" secondAttribute="bottom" constant="8" id="cYz-cB-LH6"/>
@@ -86,9 +84,10 @@
                             <constraint firstItem="sxj-Kv-hsT" firstAttribute="top" secondItem="AKm-3l-Qpn" secondAttribute="bottom" constant="15" id="mqQ-lf-nGH"/>
                             <constraint firstItem="ofG-EC-Srp" firstAttribute="leading" secondItem="b1a-2R-z9f" secondAttribute="trailing" constant="25" id="r9f-f8-XUf"/>
                             <constraint firstItem="0NL-U4-Di3" firstAttribute="leading" secondItem="6NP-ET-cbF" secondAttribute="trailing" constant="20" id="tM2-av-JXq"/>
-                            <constraint firstAttribute="trailing" secondItem="ofG-EC-Srp" secondAttribute="trailing" constant="15" id="vMJ-YG-aYX"/>
+                            <constraint firstItem="sU4-jz-Spp" firstAttribute="trailing" secondItem="ofG-EC-Srp" secondAttribute="trailing" constant="15" id="vMJ-YG-aYX"/>
                             <constraint firstItem="ofG-EC-Srp" firstAttribute="centerY" secondItem="b1a-2R-z9f" secondAttribute="centerY" id="zTA-1o-E0Y"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="sU4-jz-Spp"/>
                     </view>
                     <connections>
                         <outlet property="ibLongTextLabel" destination="sxj-Kv-hsT" id="ZH5-tn-hi0"/>

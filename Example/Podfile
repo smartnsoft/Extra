@@ -6,7 +6,7 @@ target 'Extra_Example' do
   pod 'Extra', :path => '../'
 
   pod 'SwiftGen', '~> 4.0.1'
-  pod 'RxCocoa', '~> 3.4.1'
+  pod 'RxCocoa', '~> 4.0.0'
   pod 'SwiftLint'
 
   target 'Extra_Tests' do
