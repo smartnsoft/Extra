@@ -46,19 +46,8 @@ extension String {
   ///
   /// - returns: True or false mail validation
   public func isValidEmail() -> Bool {
-    
-    guard self.isEmpty == false else {
-      return false
-    }
-    do {
-      let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}",
-                                          options: .caseInsensitive)
-      return regex.firstMatch(in: self,
-                              options: NSRegularExpression.MatchingOptions(rawValue: 0),
-                              range: NSRange(location: 0, length: self.count)) != nil
-    } catch {
-      return false
-    }
+    let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: self)
   }
   
   /// Capitalize only the first letter of the entire string (localized capitalized)
