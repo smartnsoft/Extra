@@ -70,7 +70,7 @@ extension Extra where Base: UIView {
     let nibName = String(describing: type(of: self.base))
     let bundle = Bundle(for: type(of: self.base))
     let nib = UINib(nibName: nibName, bundle: bundle)
-    guard let view: UIView = nib.instantiate(withOwner: self.base, options: nil)[0] as? UIView else {
+    guard let view: UIView = nib.instantiate(withOwner: self.base, options: nil).first as? UIView else {
       fatalError("Unable to get the root view using instantiateWithOwner")
     }
     return view
