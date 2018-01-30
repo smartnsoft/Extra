@@ -29,5 +29,15 @@ extension Extra where Base: UIApplication {
   public static func hideActivityIndicator() {
     UIApplication.shared.isNetworkActivityIndicatorVisible = false
   }
+  
+  public static func isLandscape() -> Bool {
+    let currentOrientation = UIApplication.shared.statusBarOrientation
+    return UIInterfaceOrientationIsLandscape(currentOrientation)
+  }
+  
+  public static func isPortrait() -> Bool {
+    let currentOrientation = UIApplication.shared.statusBarOrientation
+    return UIInterfaceOrientationIsPortrait(currentOrientation)
+  }
   #endif
 }
