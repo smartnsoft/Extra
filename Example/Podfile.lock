@@ -1,11 +1,11 @@
 PODS:
-  - Extra (1.0.0):
-    - Extra/Foundation (= 1.0.0)
-    - Extra/UIKit (= 1.0.0)
-  - Extra/Foundation (1.0.0)
-  - Extra/Realm (1.0.0):
+  - Extra (1.1.0):
+    - Extra/Foundation (= 1.1.0)
+    - Extra/UIKit (= 1.1.0)
+  - Extra/Foundation (1.1.0)
+  - Extra/Realm (1.1.0):
     - RealmSwift (~> 3.0)
-  - Extra/UIKit (1.0.0)
+  - Extra/UIKit (1.1.0)
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Extra: da11ebee22bd2ef9642de6d6b5d9ca725aa0f540
+  Extra: 169e8d97aaba55f4b845fb34539dea1536054d5a
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
