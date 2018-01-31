@@ -147,7 +147,7 @@ extension Extra where Base: UIImage {
   
   /// Simple resize of your image based to it center
   ///
-  /// - returns:
+  /// - returns: Resized image
   public func resizableImageByCenter() -> UIImage {
     
     let topBottom = self.base.size.height / 2
@@ -187,7 +187,11 @@ extension Extra where Base: UIImage {
     return image
   }
   
-  //temp
+  /// Creates a scaled copy of the image according to specified factor.
+  ///
+  /// - Parameter factor: Scaled factor
+  ///
+  /// - Returns: Scaled copy of the image
   func scaleImage(toFactor factor: CGFloat) -> UIImage? {
     
     guard let cgImage = self.base.cgImage, let colorSpace = cgImage.colorSpace else {
@@ -220,5 +224,40 @@ extension Extra where Base: UIImage {
     }
     
     return nil
+  }
+  
+  /// Cut and return a tile in the image with specified rect.
+  ///
+  /// - Parameter rect: Rect to cut
+  ///
+  /// - Returns: Cut tile
+  public func cutTile(with rect: CGRect) -> UIImage? {
+    guard let cgImage = self.base.cgImage,
+      let image = cgImage.cropping(to: rect) else {
+      return nil
+    }
+    
+    return UIImage(cgImage: image)
+  }
+  
+  /// Creates a copy of the image simulating aspect fill to specified size
+  ///
+  /// - Parameter size: Size of the required image
+  ///
+  /// - Returns: Copy of the image after aspect fill
+  public func scaledAspectFill(to size: CGSize) -> UIImage? {
+    let aspectWidth = size.width / self.base.size.width
+    let aspectHeight = size.height / self.base.size.height
+    let aspectRatio = max(aspectWidth, aspectHeight)
+    var rect = CGRect.zero
+    rect.size.width = self.base.size.width * aspectRatio
+    rect.size.height = self.base.size.height * aspectRatio
+    rect.origin.x = (size.width - rect.size.width) / 2.0
+    rect.origin.y = (size.height - rect.size.height) / 2.0
+    UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
+    self.base.draw(in: rect)
+    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return scaledImage
   }
 }
