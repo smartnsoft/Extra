@@ -22,7 +22,7 @@
 
 extension Extra where Base: UILabel {
   
-  /// Estimates width of a label required to display specified text fitting container height
+  /// Estimates width of a label required to display specified text fitting container height.
   ///
   /// - Parameters:
   ///   - containerHeight: Fitting container height
@@ -34,7 +34,7 @@ extension Extra where Base: UILabel {
     return UILabel.ex.width(fitting: containerHeight, attributedString: attributedString)
   }
   
-  /// Estimates width of a label required to display specified text fitting container height
+  /// Estimates width of a label required to display specified text fitting container height.
   ///
   /// - Parameters:
   ///   - containerHeight: Fitting container height
@@ -47,7 +47,7 @@ extension Extra where Base: UILabel {
     return ceil(boundingRect.width)
   }
   
-  /// Estimates height of a label required to display specified text fitting container height
+  /// Estimates height of a label required to display specified text fitting container height.
   ///
   /// - Parameters:
   ///   - containerHeight: Fitting container width
@@ -59,7 +59,7 @@ extension Extra where Base: UILabel {
     return UILabel.ex.height(fitting: containerWidth, attributedString: attributedString)
   }
   
-  /// Estimates height of a label required to display specified text fitting container height
+  /// Estimates height of a label required to display specified text fitting container height.
   ///
   /// - Parameters:
   ///   - containerHeight: Fitting container width

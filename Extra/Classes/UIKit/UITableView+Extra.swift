@@ -94,8 +94,7 @@ extension Extra where Base: UITableView {
     self.base.tableFooterView = footerView
   }
   
-  
-  /// Scrolls the tableView to the top (including its headerView)
+  /// Scrolls the tableView to the top (including its headerView).
   ///
   /// - Parameter animated: Scroll shoud be animated
   public func scrollToTop(animated: Bool) {

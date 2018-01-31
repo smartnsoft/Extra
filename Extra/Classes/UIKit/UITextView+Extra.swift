@@ -22,7 +22,7 @@
 
 extension Extra where Base: UITextView {
 
-  /// Configures textView without padding
+  /// Configures textView without padding.
   public func setNoPadding() {
     self.base.textContainer.lineFragmentPadding = 0
     self.base.textContainerInset = .zero
