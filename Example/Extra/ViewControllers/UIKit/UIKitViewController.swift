@@ -20,7 +20,7 @@ enum ButtonKind: Int {
     var retValue: String
     switch self {
     case .dashedBorder:
-      retValue = "Toogle a dashed border"
+      retValue = "Toggle a dashed border"
     case .shadowBorder:
       retValue = "Toggle a shadow border"
     case .bottomDivider:
@@ -39,6 +39,7 @@ final class UIKitViewController: UIViewController {
   // MARK: Outlets
   @IBOutlet weak var ibExampleView: UIView!
   @IBOutlet weak var ibTableView: UITableView!
+  @IBOutlet weak var ibCustomButton: UIButton!
   
   var switchLocked = false
   
@@ -49,12 +50,17 @@ final class UIKitViewController: UIViewController {
     let nib = UINib(nibName: LabelCell.reuseIdentifier, bundle: nil)
     self.ibTableView.register(nib, forCellReuseIdentifier: LabelCell.reuseIdentifier)
     
+    self.ibCustomButton.ex.configure(withTitle: "button",
+                                     titleFont: UIFont.systemFont(ofSize: 16),
+                                     titleColor: .black,
+                                     backgroundColor: .orange,
+                                     cornerRadius: 5.0)
+    
     let newVc = ColorViewController()
     newVc.color = self.childViewControllers.last?.view.backgroundColor == .orange ? .blue : .orange
     //self.ex.addChildViewController(newVc, in: self.ibExampleView, insets: .zero)
     self.ex.switchChilds(from: nil, to: newVc, in: self.ibExampleView, duration: 1)
   }
-  
 }
 
 extension UIKitViewController: UITableViewDelegate {
@@ -99,7 +105,7 @@ extension UIKitViewController: UITableViewDelegate {
   
   func resetView() {
     let layer = self.ibExampleView.layer
-    layer.sublayers = nil
+    layer.sublayers?.removeAll()
     layer.shadowPath = nil
   }
   

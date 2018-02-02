@@ -72,7 +72,6 @@ extension Extra where Base: UIViewController {
       childView.frame = container.bounds
       container.ex.addSubview(childView, insets: insets)
       childController.didMove(toParentViewController: self.base)
-      
     } else {
       fatalError("Your view controller \(childController) does not contain any view")
     }
@@ -134,6 +133,21 @@ extension Extra where Base: UIViewController {
       }, completion: { finished in
         completion?(finished)
       })
+    }
+  }
+  
+  /// Dismiss all presented view controllers recursively.
+  ///
+  /// - parameter animated:   indicates if all dismiss needs to be animated.
+  /// - parameter completion: completion called when all presented view controllers have been dismissed.
+  public func dismissAllPresented(animated: Bool = false, completion: (() -> Swift.Void)? = nil) {
+    DispatchQueue.main.async {
+      if let presentedViewController = self.base.presentedViewController {
+        presentedViewController.ex.dismissAllPresented(animated: animated)
+        presentedViewController.dismiss(animated: animated, completion: completion)
+      } else {
+        completion?()
+      }
     }
   }
   

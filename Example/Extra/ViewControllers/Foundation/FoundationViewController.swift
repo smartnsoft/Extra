@@ -17,7 +17,7 @@ class FoundationViewController: UIViewController {
   @IBOutlet weak var ibShuffleLabel: UILabel!
   @IBOutlet weak var ibLongTextLabel: UILabel!
   
-  private var emojis = ["😀", "😬", "😁", "😂", "😃", "😄", "😅", "😆"]
+  private var emojis = ["😀", "😬", "😬", "😬", "😬", "😬", "😁", "😂", "😂", "😂", "😃", "😃", "😄", "😅", "😆"].withoutDuplicates()
   
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2017 Smart&Soft
+// Copyright (c) 2018 Smart&Soft
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,24 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-extension Extra where Base: UIApplication {
-  #if os(iOS)
-  public static func showActivityIndicator() {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = true
+extension Extra where Base: UITextView {
+
+  /// Configures textView without padding.
+  public func setNoPadding() {
+    self.base.textContainer.lineFragmentPadding = 0
+    self.base.textContainerInset = .zero
   }
   
-  public static func hideActivityIndicator() {
-    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-  }
-  
-  public static func isLandscape() -> Bool {
-    let currentOrientation = UIApplication.shared.statusBarOrientation
-    return UIInterfaceOrientationIsLandscape(currentOrientation)
-  }
-  
-  public static func isPortrait() -> Bool {
-    let currentOrientation = UIApplication.shared.statusBarOrientation
-    return UIInterfaceOrientationIsPortrait(currentOrientation)
-  }
-  #endif
 }

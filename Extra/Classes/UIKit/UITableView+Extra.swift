@@ -93,4 +93,13 @@ extension Extra where Base: UITableView {
     footerView.frame = frame
     self.base.tableFooterView = footerView
   }
+  
+  /// Scrolls the tableView to the top (including its headerView).
+  ///
+  /// - Parameter animated: Scroll shoud be animated
+  public func scrollToTop(animated: Bool) {
+    self.base.setContentOffset(CGPoint(x: 0.0, y: -self.base.contentInset.top),
+                               animated: animated)
+  }
+  
 }

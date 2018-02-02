@@ -23,6 +23,7 @@
 import Foundation
 
 extension MutableCollection {
+  
   /// Shuffles the contents of this collection.
   public mutating func shuffle() {
     let c = count
@@ -38,10 +39,27 @@ extension MutableCollection {
 }
 
 extension Sequence {
+  
   /// Returns an array with the contents of this sequence, shuffled.
+  ///
+  /// - Returns: Array's copy shuffled
   public func shuffled() -> [Iterator.Element] {
     var result = Array(self)
     result.shuffle()
     return result
   }
+  
+}
+
+extension Sequence where Element : Equatable {
+
+  /// Returns an array with the content of this sequence after removing all duplicated elements.
+  ///
+  /// - Returns: Array's copy without duplicates
+  public func withoutDuplicates() -> [Iterator.Element] {
+    return self.reduce([]) { (result, element) in
+      (result.contains(element)) ? result : result + [element]
+    }
+  }
+  
 }
