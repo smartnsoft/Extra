@@ -37,7 +37,7 @@ public protocol ObjectRelationDeletable {
 }
 
 /// Default implementation of the ObjectRelationDeletable protocol
-extension ObjectRelationDeletable {
+public extension ObjectRelationDeletable {
   func deleteRelationships(_ realm: Realm) throws {}
 }
 
