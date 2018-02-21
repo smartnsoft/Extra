@@ -107,6 +107,7 @@ extension Extra where Base: UIViewController {
       return
     }
     destinationController.view.frame = viewContainer.bounds
+    destinationController.view.layoutIfNeeded()
     
     if let originController = originController {
       originController.willMove(toParentViewController: nil)
