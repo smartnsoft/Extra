@@ -20,29 +20,29 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-/// Didn't you ever try to reproduce a shadow from Zeplin/Sketch and failed very hard?
-/// This function reproduces a shadow that nearly perfectly matches the one in your design.
-/// Just give it the Zeplin/Sketch shadow's parameters and you're good.
-/// From https://stackoverflow.com/a/48489506
 extension CALayer {
 
-  func applySketchShadow(
+  /// Didn't you ever try to reproduce a shadow from Zeplin/Sketch and failed very hard?
+  /// This function reproduces a shadow that nearly perfectly matches the one in your design.
+  /// Just give it the Zeplin/Sketch shadow's parameters and you're good.
+  /// From https://stackoverflow.com/a/48489506
+  public func applySketchShadow(
     color: UIColor = .black,
     alpha: Float = 0.5,
     x: CGFloat = 0,
     y: CGFloat = 2,
     blur: CGFloat = 4,
     spread: CGFloat = 0) {
-    shadowColor = color.cgColor
-    shadowOpacity = alpha
-    shadowOffset = CGSize(width: x, height: y)
-    shadowRadius = blur / 2.0
+    self.shadowColor = color.cgColor
+    self.shadowOpacity = alpha
+    self.shadowOffset = CGSize(width: x, height: y)
+    self.shadowRadius = blur / 2.0
     if spread == 0 {
-      shadowPath = nil
+      self.shadowPath = nil
     } else {
       let deltaX = -spread
-      let rect = bounds.insetBy(dx: deltaX, dy: deltaX)
-      shadowPath = UIBezierPath(rect: rect).cgPath
+      let rect = self.bounds.insetBy(dx: deltaX, dy: deltaX)
+      self.shadowPath = UIBezierPath(rect: rect).cgPath
     }
   }
 }
