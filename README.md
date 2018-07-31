@@ -83,7 +83,7 @@ UI | Utils | Third-party libraries
 
 ####  `UITableViewCell`
 
--  `tableView` property : return the current UICollectionView related to the cell
+-  `tableView` property : return the current UITableView related to the cell
 
 ###  <a id="uiColorAnchor">`UIColor`</a>
 
