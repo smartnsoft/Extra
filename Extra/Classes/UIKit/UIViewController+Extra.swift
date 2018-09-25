@@ -68,9 +68,9 @@ extension Extra where Base: UIViewController {
     insets: UIEdgeInsets = .zero) {
     
     if let childView = childController.view {
-      self.base.addChildViewController(childController)
       childView.frame = container.bounds
       container.ex.addSubview(childView, insets: insets)
+      self.base.addChildViewController(childController)
       childController.didMove(toParentViewController: self.base)
     } else {
       fatalError("Your view controller \(childController) does not contain any view")
