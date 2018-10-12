@@ -51,7 +51,7 @@ extension Sequence {
   
 }
 
-extension Sequence where Element : Equatable {
+extension Sequence where Element: Equatable {
 
   /// Returns an array with the content of this sequence after removing all duplicated elements.
   ///

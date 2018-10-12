@@ -49,6 +49,7 @@ UI | Utils | Third-party libraries
 [UIDevice](#uiDeviceAnchor) |
 [UIViewController](#uiVcAnchor) |
 [UINavigationController](#uiNavControllerAnchor) |
+[CALayer](#caLayerAnchor) |
 
 ## Usage
 
@@ -145,6 +146,31 @@ UI | Utils | Third-party libraries
 -  `addChildViewController(_ childController: UIViewController, in container: UIView, insets: UIEdgeInsets = default)` : Simply programmatically adding a child view controller
 -  `switchChilds(from originController: UIViewController?, to destinationController: UIViewController, in viewContainer: UIView, duration: TimeInterval = default, transitionOptions: UIViewAnimationOptions = default, completion: ((Bool) -> Void)? = default)` : Switch between child view controllers
 
+## Foundation extensions
+
+### <a id="stringAnchor">`String`</a>
+
+- `heightConstrained(to width: CGFloat, attributes: [String : Any]? = default) -> CGFloat` : Same as boundingRect(), but simplified !
+- `isValidEmail() -> Bool` : `[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}`
+- `firstCapitalized() -> String` : Capitalize only the first letter of the entire string (localized capitalized)
+- `matchesRegex(regex: String) -> Bool` : Check if the string matches to the passed regex
+- `base64() -> String?` : Base-64 encoded string
+
+### <a id="collectionAnchor">`MutableCollection`</a>
+
+- `shuffle()` : Shuffles the contents of this collection.
+
+### <a id="sequenceAnchor">`Sequence`</a>
+
+- `shuffled() -> [Iterator.Element]` : Returns an array with the contents of this sequence, shuffled.
+- `withoutDuplicates() -> [Iterator.Element]` : Returns an array with the content of this sequence after removing all duplicated elements.
+
+## Other extensions
+
+### <a id="caLayerAnchor">`CALayer`</a>
+
+- `applySketchShadow()` : Reproduces and applies a shadow that nearly perfectly matches the design according to Zeplin or Sketch parameters.
+
 ### <a id="realmAnchor">`Realm`</a> 💾
 
 #### `DetachableObject`
@@ -184,25 +210,6 @@ Simply detach an object from Realm into memmory with its entire properties.
 
 #### `RealmSwift.List`
 - `ex_toArray() -> [T]` : Return lsit of object as a sequence Temporary name
-
-## Foundation extensions
-
-### <a id="stringAnchor">`String`</a>
-
-- `heightConstrained(to width: CGFloat, attributes: [String : Any]? = default) -> CGFloat` : Same as boundingRect(), but simplified !
-- `isValidEmail() -> Bool` : `[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}`
-- `firstCapitalized() -> String` : Capitalize only the first letter of the entire string (localized capitalized)
-- `matchesRegex(regex: String) -> Bool` : Check if the string matches to the passed regex
-- `base64() -> String?` : Base-64 encoded string
-
-### <a id="collectionAnchor">`MutableCollection`</a>
-
-- `shuffle()` : Shuffles the contents of this collection.
-
-### <a id="sequenceAnchor">`Sequence`</a>
-
-- `shuffled() -> [Iterator.Element]` : Returns an array with the contents of this sequence, shuffled.
-- `withoutDuplicates() -> [Iterator.Element]` : Returns an array with the content of this sequence after removing all duplicated elements.
 
 ## Author
 

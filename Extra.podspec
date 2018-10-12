@@ -11,9 +11,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '9.0'
 
-  s.ios.frameworks        = 'UIKit', 'QuartzCore', 'Foundation'
+  s.ios.frameworks        = 'UIKit', 'Foundation', 'QuartzCore'
 
-  s.default_subspec = 'UIKit', 'Foundation'
+  s.default_subspec = 'UIKit', 'Foundation', 'CoreAnimation'
 
   s.subspec 'UIKit' do |sp|
     sp.source_files = 'Extra/Classes/Extra/**/*.{swift}', 'Extra/Classes/UIKit/**/*.{swift}'
@@ -21,6 +21,10 @@ Pod::Spec.new do |s|
 
   s.subspec 'Foundation' do |sp|
     sp.source_files = 'Extra/Classes/Extra/**/*.{swift}', 'Extra/Classes/Foundation/**/*.{swift}'
+  end
+
+  s.subspec 'CoreAnimation' do |sp|
+    sp.source_files = 'Extra/Classes/Extra/**/*.{swift}', 'Extra/Classes/CoreAnimation/**/*.{swift}'
   end
 
   s.subspec 'Realm' do |sp|

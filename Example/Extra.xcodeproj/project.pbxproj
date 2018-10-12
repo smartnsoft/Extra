@@ -325,7 +325,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				FBC9F4C0CB14C78450084F73 /* [CP] Embed Pods Frameworks */,
-				8EFED5140479B57C5EB10104 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -344,8 +343,6 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				889DCE2F75A5993F5C76BE12 /* [CP] Embed Pods Frameworks */,
-				4DD9D27CFE7F07A939A327F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -500,51 +497,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "$PODS_ROOT/SwiftLint/swiftlint autocorrect\n$PODS_ROOT/SwiftLint/swiftlint";
-		};
-		4DD9D27CFE7F07A939A327F3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Extra_Tests/Pods-Extra_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		889DCE2F75A5993F5C76BE12 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Extra_Tests/Pods-Extra_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8EFED5140479B57C5EB10104 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Extra_Example/Pods-Extra_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		FBC9F4C0CB14C78450084F73 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

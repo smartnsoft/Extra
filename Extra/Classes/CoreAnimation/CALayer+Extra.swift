@@ -22,10 +22,7 @@
 
 extension CALayer {
 
-  /// Didn't you ever try to reproduce a shadow from Zeplin/Sketch and failed very hard?
-  /// This function reproduces a shadow that nearly perfectly matches the one in your design.
-  /// Just give it the Zeplin/Sketch shadow's parameters and you're good.
-  /// From https://stackoverflow.com/a/48489506
+  /// Reproduces and applies a shadow that nearly perfectly matches the design according to Zeplin or Sketch parameters.
   public func applySketchShadow(
     color: UIColor = .black,
     alpha: Float = 0.5,
