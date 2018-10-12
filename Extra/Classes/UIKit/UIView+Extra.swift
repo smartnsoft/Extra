@@ -100,12 +100,12 @@ extension Extra where Base: UIView {
     let vConstraint = "V:|-\(insets.top)-[subview]-\(insets.bottom)-|"
     
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: hConstraint,
-                                                            options: NSLayoutFormatOptions(rawValue: 0),
+                                                            options: NSLayoutConstraint.FormatOptions(rawValue: 0),
                                                             metrics: nil,
                                                             views: ["subview": subview]))
     
     self.base.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: vConstraint,
-                                                            options: NSLayoutFormatOptions(rawValue: 0),
+                                                            options: NSLayoutConstraint.FormatOptions(rawValue: 0),
                                                             metrics: nil,
                                                             views: ["subview": subview]))
   }
@@ -181,7 +181,7 @@ extension Extra where Base: UIView {
     shapeLayer.fillColor = UIColor.clear.cgColor
     shapeLayer.strokeColor = color
     shapeLayer.lineWidth = thickness
-    shapeLayer.lineJoin = kCALineJoinRound
+    shapeLayer.lineJoin = CAShapeLayerLineJoin.round
     shapeLayer.lineDashPattern = [6, 3]
     shapeLayer.path = UIBezierPath(roundedRect: shapeRect, cornerRadius: 5).cgPath
     

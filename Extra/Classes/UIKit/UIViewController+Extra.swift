@@ -68,10 +68,10 @@ extension Extra where Base: UIViewController {
     insets: UIEdgeInsets = .zero) {
     
     if let childView = childController.view {
-      self.base.addChildViewController(childController)
+      self.base.addChild(childController)
       childView.frame = container.bounds
       container.ex.addSubview(childView, insets: insets)
-      childController.didMove(toParentViewController: self.base)
+      childController.didMove(toParent: self.base)
     } else {
       fatalError("Your view controller \(childController) does not contain any view")
     }
@@ -81,9 +81,9 @@ extension Extra where Base: UIViewController {
   ///
   /// - Parameter childViewController: child controller to remove
   public func removeChildViewController(_ childViewController: UIViewController) {
-    childViewController.willMove(toParentViewController: nil)
+    childViewController.willMove(toParent: nil)
     childViewController.view.removeFromSuperview()
-    childViewController.removeFromParentViewController()
+    childViewController.removeFromParent()
   }
   
   /// Switch between child view controllers
@@ -99,7 +99,7 @@ extension Extra where Base: UIViewController {
     to destinationController: UIViewController,
     in viewContainer: UIView,
     duration: TimeInterval = 0.3,
-    transitionOptions: UIViewAnimationOptions = .transitionCrossDissolve,
+    transitionOptions: UIView.AnimationOptions = .transitionCrossDissolve,
     insets: UIEdgeInsets = .zero,
     completion: ((Bool) -> Void)? = nil) {
     
@@ -110,8 +110,8 @@ extension Extra where Base: UIViewController {
     destinationController.view.layoutIfNeeded()
     
     if let originController = originController {
-      originController.willMove(toParentViewController: nil)
-      self.base.addChildViewController(destinationController)
+      originController.willMove(toParent: nil)
+      self.base.addChild(destinationController)
       self.base.transition(from: originController,
                            to: destinationController,
                            duration: duration,
@@ -120,8 +120,8 @@ extension Extra where Base: UIViewController {
                             viewContainer.ex.setSubviewConstraints(destinationController.view)
       },
                            completion: { completed in
-                            originController.removeFromParentViewController()
-                            destinationController.didMove(toParentViewController: self.base)
+                            originController.removeFromParent()
+                            destinationController.didMove(toParent: self.base)
                             completion?(completed)
                             
       })

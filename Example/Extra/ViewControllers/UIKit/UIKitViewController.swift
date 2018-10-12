@@ -57,7 +57,7 @@ final class UIKitViewController: UIViewController {
                                      cornerRadius: 5.0)
     
     let newVc = ColorViewController()
-    newVc.color = self.childViewControllers.last?.view.backgroundColor == .orange ? .blue : .orange
+    newVc.color = self.children.last?.view.backgroundColor == .orange ? .blue : .orange
     //self.ex.addChildViewController(newVc, in: self.ibExampleView, insets: .zero)
     self.ex.switchChilds(from: nil, to: newVc, in: self.ibExampleView, duration: 1)
   }
@@ -86,7 +86,7 @@ extension UIKitViewController: UITableViewDelegate {
       self.ibExampleView.ex.addBottomDivider(color: .white, alpha: 0.5, thickness: 10, widthMultiplier: 0.9)
     case .switchChild:
       if !switchLocked {
-        let currentVc = self.childViewControllers.last
+        let currentVc = self.children.last
         let newVc = ColorViewController()
         newVc.color = currentVc?.view.backgroundColor == .orange ? .blue : .orange
         self.ex.switchChilds(from: currentVc,

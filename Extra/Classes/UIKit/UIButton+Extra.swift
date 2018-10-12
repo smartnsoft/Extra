@@ -25,13 +25,13 @@ extension Extra where Base: UIButton {
   public func configureTitle(with title: String, font: UIFont, color: UIColor,
                              highlightedColor: UIColor? = nil) {
     
-    let attributes: [NSAttributedStringKey: Any] = [.font: font, .foregroundColor: color]
+    let attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: color]
     let attributedString = NSMutableAttributedString(string: title, attributes: attributes)
     self.base.setAttributedTitle(attributedString, for: .normal)
     self.base.setTitleColor(color, for: .normal)
     
     let highlightedColor = highlightedColor ?? color.withAlphaComponent(0.6)
-    let highlightedAttributes: [NSAttributedStringKey: Any] = [.font: font, .foregroundColor: highlightedColor]
+    let highlightedAttributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: highlightedColor]
     let highlightedAttributedString = NSMutableAttributedString(string: title, attributes: highlightedAttributes)
     self.base.setAttributedTitle(highlightedAttributedString, for: .highlighted)
     self.base.setAttributedTitle(highlightedAttributedString, for: [.normal, .highlighted])

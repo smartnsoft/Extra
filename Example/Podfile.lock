@@ -6,7 +6,7 @@ PODS:
   - Extra/CoreAnimation (1.1.1)
   - Extra/Foundation (1.1.1)
   - Extra/Realm (1.1.1):
-    - RealmSwift (~> 3.7)
+    - RealmSwift (~> 3.10)
   - Extra/UIKit (1.1.1)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
@@ -20,7 +20,7 @@ DEPENDENCIES:
   - Extra (from `../`)
   - Extra/Realm (from `../`)
   - SwiftGen (~> 4.0.1)
-  - SwiftLint
+  - SwiftLint (~> 0.27.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -34,12 +34,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extra: 4e477cd96ce6c23bcdd626cd62d8fe27e0c89d8b
+  Extra: c0ae28d7e38113ba61c03e212347645f88cc22c1
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   SwiftGen: 04bbc1fb69add82a7a471380dfbdd00b45912d17
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 76c147e8c8f89c1e10faec6c27dfe8c625fd6a52
+PODFILE CHECKSUM: 627a861f2ab08b839513b74566012272b9285536
 
 COCOAPODS: 1.5.3

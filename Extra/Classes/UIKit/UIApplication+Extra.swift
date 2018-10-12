@@ -31,13 +31,11 @@ extension Extra where Base: UIApplication {
   }
   
   public static func isLandscape() -> Bool {
-    let currentOrientation = UIApplication.shared.statusBarOrientation
-    return UIInterfaceOrientationIsLandscape(currentOrientation)
+    return UIApplication.shared.statusBarOrientation.isLandscape
   }
   
   public static func isPortrait() -> Bool {
-    let currentOrientation = UIApplication.shared.statusBarOrientation
-    return UIInterfaceOrientationIsPortrait(currentOrientation)
+    return UIApplication.shared.statusBarOrientation.isPortrait
   }
   #endif
 }

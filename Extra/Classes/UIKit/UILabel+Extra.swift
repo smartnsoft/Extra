@@ -29,7 +29,7 @@ extension Extra where Base: UILabel {
   ///   - string: String to displayed
   ///   - attributes: String attributes
   /// - Returns: Estimated width
-  public static func width(fitting containerHeight: CGFloat, string: String, attributes: [NSAttributedStringKey: Any]) -> CGFloat {
+  public static func width(fitting containerHeight: CGFloat, string: String, attributes: [NSAttributedString.Key: Any]) -> CGFloat {
     let attributedString = NSAttributedString(string: string, attributes: attributes)
     return UILabel.ex.width(fitting: containerHeight, attributedString: attributedString)
   }
@@ -54,7 +54,7 @@ extension Extra where Base: UILabel {
   ///   - string: String to displayed
   ///   - attributes: String attributes
   /// - Returns: Estimated height
-  public static func height(fitting containerWidth: CGFloat, string: String, attributes: [NSAttributedStringKey: Any]) -> CGFloat {
+  public static func height(fitting containerWidth: CGFloat, string: String, attributes: [NSAttributedString.Key: Any]) -> CGFloat {
     let attributedString = NSAttributedString(string: string, attributes: attributes)
     return UILabel.ex.height(fitting: containerWidth, attributedString: attributedString)
   }

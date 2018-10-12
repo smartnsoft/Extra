@@ -30,7 +30,7 @@ class FoundationViewController: UIViewController {
     let longText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
     
     let height = longText.heightConstrained(to: self.ibLongTextLabel.frame.width,
-                                            attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17)])
+                                            attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)])
     print("Your label will take an height of : \(height)")
     self.ibLongTextLabel.text = longText
     
