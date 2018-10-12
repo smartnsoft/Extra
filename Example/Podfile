@@ -5,9 +5,8 @@ target 'Extra_Example' do
   pod 'Extra/Realm', :path => '../'
   pod 'Extra', :path => '../'
 
-  pod 'SwiftGen', '~> 4.0.1'
-  pod 'RxCocoa', '~> 4.0.0'
-  pod 'SwiftLint'
+  pod 'SwiftGen',   '~> 4.0.1'
+  pod 'SwiftLint',  '~> 0.27.0'
 
   target 'Extra_Tests' do
     inherit! :search_paths
