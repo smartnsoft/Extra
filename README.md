@@ -38,8 +38,8 @@ pod "Extra/Realm"
 UI | Utils | Third-party libraries
 ------------ | ------------- | -------------
 [UIApplication](#uiAppAnchor) | [String](#stringAnchor) | [Realm](#realmAnchor)
-[UICollectionView](#uiCollectionViewAnchor) | [Collection](#collectionAnchor)
-[UITableView](#uiTableViewAnchor) | [Sequence](#sequenceAnchor)
+[UICollectionView](#uiCollectionViewAnchor) | [Sequence](#sequenceAnchor)
+[UITableView](#uiTableViewAnchor) |
 [UIView](#uiViewAnchor) |
 [UIImage](#uiImageAnchor) |
 [UIButton](#uiButtonAnchor) |
@@ -156,13 +156,8 @@ UI | Utils | Third-party libraries
 - `matchesRegex(regex: String) -> Bool` : Check if the string matches to the passed regex
 - `base64() -> String?` : Base-64 encoded string
 
-### <a id="collectionAnchor">`MutableCollection`</a>
-
-- `shuffle()` : Shuffles the contents of this collection.
-
 ### <a id="sequenceAnchor">`Sequence`</a>
 
-- `shuffled() -> [Iterator.Element]` : Returns an array with the contents of this sequence, shuffled.
 - `withoutDuplicates() -> [Iterator.Element]` : Returns an array with the content of this sequence after removing all duplicated elements.
 
 ## Other extensions
