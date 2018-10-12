@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Extra'
-  s.version          = '1.2'
+  s.version          = '1.2.0'
   s.summary          = 'Swift library with usefull and lightfull extensions for your Cocoa Touch projects.'
 
   s.homepage         = 'https://github.com/smartnsoft/Extra'
