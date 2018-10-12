@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/cocoapods/l/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
 [![Platform](https://img.shields.io/cocoapods/p/Extra.svg?style=flat)](http://cocoapods.org/pods/Extra)
 
-A Swift 4 library with usefull and lightfull extensions for your Cocoa Touch projects.
+A Swift library with usefull and lightfull extensions for your Cocoa Touch projects.
 
 ## Example
 
@@ -16,7 +16,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 
 - iOS 9+
-- Xcode 9+, Swift 4
+- Xcode 10+, Swift 4.2
 
 ## Installation
 
@@ -30,6 +30,7 @@ pod "Extra"
 
 pod "Extra/UIKit"
 pod "Extra/Foundation"
+pod "Extra/CoreAnimation"
 pod "Extra/Realm"
 ```
 

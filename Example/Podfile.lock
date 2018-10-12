@@ -1,13 +1,13 @@
 PODS:
-  - Extra (1.1.1):
-    - Extra/CoreAnimation (= 1.1.1)
-    - Extra/Foundation (= 1.1.1)
-    - Extra/UIKit (= 1.1.1)
-  - Extra/CoreAnimation (1.1.1)
-  - Extra/Foundation (1.1.1)
-  - Extra/Realm (1.1.1):
+  - Extra (1.2):
+    - Extra/CoreAnimation (= 1.2)
+    - Extra/Foundation (= 1.2)
+    - Extra/UIKit (= 1.2)
+  - Extra/CoreAnimation (1.2)
+  - Extra/Foundation (1.2)
+  - Extra/Realm (1.2):
     - RealmSwift (~> 3.10)
-  - Extra/UIKit (1.1.1)
+  - Extra/UIKit (1.2)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
   - Realm/Headers (3.11.0)
@@ -34,7 +34,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extra: c0ae28d7e38113ba61c03e212347645f88cc22c1
+  Extra: e548648fa728cfa7e5e8663da807c4403ef52274
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   SwiftGen: 04bbc1fb69add82a7a471380dfbdd00b45912d17
