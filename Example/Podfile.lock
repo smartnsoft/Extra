@@ -1,13 +1,13 @@
 PODS:
-  - Extra (1.2):
-    - Extra/CoreAnimation (= 1.2)
-    - Extra/Foundation (= 1.2)
-    - Extra/UIKit (= 1.2)
-  - Extra/CoreAnimation (1.2)
-  - Extra/Foundation (1.2)
-  - Extra/Realm (1.2):
+  - Extra (1.2.1):
+    - Extra/CoreAnimation (= 1.2.1)
+    - Extra/Foundation (= 1.2.1)
+    - Extra/UIKit (= 1.2.1)
+  - Extra/CoreAnimation (1.2.1)
+  - Extra/Foundation (1.2.1)
+  - Extra/Realm (1.2.1):
     - RealmSwift (~> 3.10)
-  - Extra/UIKit (1.2)
+  - Extra/UIKit (1.2.1)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
   - Realm/Headers (3.11.0)
@@ -34,7 +34,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extra: e548648fa728cfa7e5e8663da807c4403ef52274
+  Extra: c0f234a6bba4a64b3f06e7ec1ceaf183bf82ea46
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   SwiftGen: 04bbc1fb69add82a7a471380dfbdd00b45912d17
@@ -42,4 +42,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 627a861f2ab08b839513b74566012272b9285536
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
