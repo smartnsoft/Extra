@@ -32,7 +32,9 @@ extension Extra where Base: UIImage {
   /// - parameter cornerRadius: Based cornerRadius for image generation
   ///
   /// - returns: UIImage generated for the designated color
-  public static func from(color: UIColor, size: CGSize, cornerRadius: CGFloat = 0) -> UIImage? {
+  public static func from(color: UIColor,
+                          size: CGSize = CGSize(width: 1, height: 1),
+                          cornerRadius: CGFloat = 0) -> UIImage? {
     
     let rect = CGRect(origin: CGPoint.zero, size: size)
     
