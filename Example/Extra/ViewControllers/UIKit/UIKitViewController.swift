@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Extra
 
-enum ButtonKind: Int {
+enum ButtonKind: Int, CaseIterable {
   case dashedBorder
   case shadowBorder
   case bottomDivider
@@ -30,8 +30,6 @@ enum ButtonKind: Int {
     }
     return retValue
   }
-  
-  static var count: Int { return ButtonKind.switchChild.hashValue + 1 }
 }
 
 final class UIKitViewController: UIViewController {
@@ -88,7 +86,7 @@ extension UIKitViewController: UITableViewDelegate {
       if !switchLocked {
         let currentVc = self.children.last
         let newVc = ColorViewController()
-        newVc.color = currentVc?.view.backgroundColor == .orange ? .blue : .orange
+        newVc.color = currentVc?.view?.backgroundColor == .orange ? .blue : .orange
         self.ex.switchChilds(from: currentVc,
                              to: newVc,
                              in: self.ibExampleView,
@@ -114,7 +112,7 @@ extension UIKitViewController: UITableViewDelegate {
 extension UIKitViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return ButtonKind.count
+    return ButtonKind.allCases.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
