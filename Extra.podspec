@@ -8,8 +8,9 @@ Pod::Spec.new do |s|
   s.author           = { 'Smart&Soft' => 'contact@smartnsoft.com' }
   s.source           = { :git => 'https://github.com/smartnsoft/Extra.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '9.0'
-  s.tvos.deployment_target = '9.0'
+  s.ios.deployment_target = '9.3'
+  s.tvos.deployment_target = '9.3'
+  s.swift_version          = '5'
 
   s.ios.frameworks        = 'UIKit', 'Foundation', 'QuartzCore'
 
