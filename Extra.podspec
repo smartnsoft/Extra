@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Extra'
-  s.version          = '1.2.3'
+  s.version          = '1.2.1'
   s.summary          = 'Swift library with usefull and lightfull extensions for your Cocoa Touch projects.'
 
   s.homepage         = 'https://github.com/smartnsoft/Extra'
@@ -30,6 +30,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Realm' do |sp|
     sp.source_files = 'Extra/Classes/Extra/**/*.{swift}','Extra/Classes/Realm/**/*.{swift}'
-    sp.dependency 'RealmSwift', '~> 4.4.0'
+    sp.dependency 'RealmSwift', '~> 3.10'
   end
 end
