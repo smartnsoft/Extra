@@ -71,11 +71,11 @@ extension Extra where Base: Object {
   
   /// Simply writes and adds or update your object in Realm
   ///
-  /// - parameter update:  Default is true if your object have a primary key
+  /// - parameter update:  Default is .modified if your object have a primary key
   /// - parameter context: Specify a Realm context if needed, otherwise the default Realm will be used
   ///
   /// - throws: Realm exception
-  public func add(in context: Realm? = nil, update: Bool = true) throws {
+  public func add(in context: Realm? = nil, update: Realm.UpdatePolicy = .modified) throws {
     let realm = context ?? Realm.ex.safeInstance()
     try realm.write({ () -> Void in
       realm.add(self.base, update: update)
@@ -93,7 +93,7 @@ extension Extra where Base: Object {
   public static func update<T>(object: T, in context: Realm? = nil) throws where T: Object {
     let realm = context ?? Realm.ex.safeInstance()
     try realm.write {
-      realm.add(object, update: true)
+      realm.add(object, update: .modified)
     }
   }
   
@@ -107,7 +107,7 @@ extension Extra where Base: Object {
   public static func update<T>(objects: [T], in context: Realm? = nil) throws where T: Object {
     let realm = context ?? Realm.ex.safeInstance()
     try realm.write {
-      realm.add(objects, update: true)
+      realm.add(objects, update: .modified)
     }
   }
   

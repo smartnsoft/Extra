@@ -23,7 +23,7 @@
 import Foundation
 import RealmSwift
 
-extension Extra where Base: Realm {
+extension Extra where Base == Realm {
   
   /// Return your [try Realm] instance no-throwable at any time
   ///
