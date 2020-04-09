@@ -37,11 +37,11 @@ public protocol ExtraCompatible {
 }
 
 public extension ExtraCompatible {
-  public static var ex: Extra<Self>.Type {
+  static var ex: Extra<Self>.Type {
     return Extra<Self>.self
   }
   
-  public var ex: Extra<Self> {
+  var ex: Extra<Self> {
     return Extra(self)
   }
 }

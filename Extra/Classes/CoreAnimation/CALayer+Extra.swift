@@ -39,7 +39,16 @@ extension Extra where Base: CALayer {
     } else {
       let deltaX = -spread
       let rect = self.base.bounds.insetBy(dx: deltaX, dy: deltaX)
-      self.base.shadowPath = UIBezierPath(rect: rect).cgPath
+      self.base.shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: self.base.cornerRadius).cgPath
     }
+  }
+
+  /// Resets shadow related properties to their default values.
+  public func resetShadowToDefaults() {
+    self.base.shadowColor = UIColor.black.cgColor
+    self.base.shadowOpacity = 0
+    self.base.shadowOffset = CGSize(width:0, height:-3)
+    self.base.shadowRadius = 3
+    self.base.shadowPath = nil
   }
 }
